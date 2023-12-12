@@ -1,10 +1,12 @@
-import { getToken } from 'next-auth/jwt'
 import { connectDB } from '@/libs/mongodb'
 import { NextRequest, NextResponse } from 'next/server'
 
-import Usuario from '@/models/Usuario'
+import User from '@/models/User'
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   const { id } = params
 
   try {
@@ -12,7 +14,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
     const data = await req.json()
 
-    await Usuario.findByIdAndUpdate(id, data)
+    await User.findByIdAndUpdate(id, data)
 
     return NextResponse.json({
       msg: 'Usuario actualizado'
@@ -24,13 +26,16 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   const { id } = params
 
   try {
     await connectDB()
 
-    await Usuario.findByIdAndDelete(id)
+    await User.findByIdAndDelete(id)
 
     return NextResponse.json({
       msg: 'Usuario eliminado correctamente'
