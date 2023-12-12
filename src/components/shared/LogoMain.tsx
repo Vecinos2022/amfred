@@ -1,12 +1,12 @@
 import { Image } from '@nextui-org/react'
-import logo from '../../assets/imgs/ssd_logo.png'
+import logo from '../../assets/imgs/amfred_logo.png'
 
 type LogoMainProps = {
   width?: number
 }
 
 const LogoMain = ({ width = 100 }: LogoMainProps) => {
-  return <Image width={width} alt='Logo SSD' src={logo.src} />
+  return <Image width={width} alt='Logo AMFRED' src={logo.src} />
 }
 
 export default LogoMain

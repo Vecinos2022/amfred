@@ -12,8 +12,8 @@ import LoaderScreen from '@/components/shared/LoaderScreen'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import logoGob from '../../assets/imgs/logo_gobierno.png'
-import imagenEscudoSSD from '../../assets/imgs/ssd.png'
+import logoAmfred from '../../assets/imgs/amfred_logo.png'
+import imagenAmfred from '../../assets/imgs/amfred_logo.png'
 
 interface LoginFormInputs {
   email: string
@@ -60,32 +60,28 @@ const LoginPage = () => {
       {session.status === 'authenticated' ? (
         <LoaderScreen />
       ) : (
-        <section className="relative flex flex-wrap lg:h-screen lg:items-center">
-          <div className="w-full h-full px-4 py-12 sm:px-6 sm:py-16 sm:mb-16 lg:w-1/2 lg:px-8 lg:py-24 bg-default-200">
-            <div className="mx-auto max-w-lg text-center">
-              <h1 className="text-2xl mt-24 mb-8 font-bold sm:text-3xl">
+        <section className='relative flex flex-wrap lg:h-screen lg:items-center'>
+          <div className='w-full h-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24 bg-default-200'>
+            <div className='mx-auto max-w-lg text-center'>
+              <h1 className='text-2xl mt-0  mb-8 font-bold sm:text-3xl'>
                 Iniciar Sesión
               </h1>
-              <Image
-                alt="Welcome"
-                src={logoGob}
-                className="w-full max-w-[250px] mx-auto mt32"
-              />
-              <p className="mt-4 text-gray-500">
+
+              <p className='mt-4 text-gray-500'>
                 Sistema de control de asistencias
               </p>
             </div>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="mx-auto mb-0 mt-8 max-w-md space-y-4"
+              className='mx-auto mb-0 mt-8 max-w-md space-y-4'
             >
               <div>
-                <label htmlFor="email" className="sr-only">
+                <label htmlFor='email' className='sr-only'>
                   Correo
                 </label>
                 <Input
-                  type="email"
-                  label="Correo electrónico"
+                  type='email'
+                  label='Correo electrónico'
                   isInvalid={errors.email ? true : false}
                   errorMessage={errors.email ? errors.email.message : ''}
                   {...register('email', {
@@ -96,11 +92,11 @@ const LoginPage = () => {
 
               <div>
                 <Input
-                  label="Contraseña"
+                  label='Contraseña'
                   endContent={
                     <button
-                      className="focus:outline-none"
-                      type="button"
+                      className='focus:outline-none'
+                      type='button'
                       onClick={() => toggleIsPasswordVisible()}
                     >
                       {isPasswordVisible ? (
@@ -118,35 +114,35 @@ const LoginPage = () => {
                   errorMessage={errors.password ? errors.password.message : ''}
                 />
               </div>
-              <div className="flex justify-center">
+              <div className='flex justify-center'>
                 {error && <ErrorLabel text={error ? error : ''} />}
               </div>
-              <div className="flex items-center justify-between">
+              <div className='flex items-center justify-between'>
                 <Button
-                  type="submit"
-                  color="primary"
-                  className="block w-full"
+                  type='submit'
+                  color='primary'
+                  className='block w-full'
                   isLoading={isPosting}
                 >
                   Iniciar sesión
                 </Button>
               </div>
-              <div className="flex items-center justify-center">
-                <p className="text-center text-sm text-gray-500">
-                  <a className="underline" href="#">
+              <div className='flex items-center justify-center'>
+                <p className='text-center text-sm text-gray-500'>
+                  <a className='underline' href='#'>
                     Recuperar contraseña
                   </a>
                 </p>
               </div>
             </form>
           </div>
-          <div className="relative flex justify-center items-center w-full sm:my-5 lg:h-full lg:w-1/2">
-            <div className="flex flex-col items-center">
-              <div className="w-full max-w-xs sm:max-w-md lg:max-w-lg">
+          <div className='relative flex justify-center items-center w-full  lg:h-full lg:w-1/2'>
+            <div className='flex flex-col items-center'>
+              <div className='w-full max-w-xs sm:max-w-md lg:max-w-lg'>
                 <Image
-                  alt="SSD"
-                  src={imagenEscudoSSD}
-                  className="w-full h-full object-cover"
+                  alt='Logo AMFRED'
+                  src={imagenAmfred}
+                  className='w-full h-full object-cover'
                 />
               </div>
             </div>
