@@ -2,6 +2,10 @@
 
 import {
   Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
   Link as LinkUI,
   Navbar,
   NavbarBrand,
@@ -9,11 +13,7 @@ import {
   NavbarItem,
   NavbarMenu,
   NavbarMenuItem,
-  NavbarMenuToggle,
-  Dropdown,
-  DropdownItem,
-  DropdownTrigger,
-  DropdownMenu
+  NavbarMenuToggle
 } from '@nextui-org/react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -125,7 +125,9 @@ const NavbarLanding = () => {
               </DropdownMenu>
             </Dropdown>
           ) : (
-            <Link href='#'>{item.section}</Link>
+            <Link key='noticias-link' href='#'>
+              {item.section}
+            </Link>
           )
         )}
       </NavbarContent>
@@ -141,7 +143,7 @@ const NavbarLanding = () => {
       <NavbarMenu>
         {menuItems.map((item, index) =>
           item.subsections.length >= 1 ? (
-            <NavbarMenuItem>
+            <NavbarMenuItem key={index}>
               <LinkUI className='w-full' color='foreground' href='#' size='lg'>
                 <Dropdown key={index}>
                   <NavbarItem>
@@ -173,7 +175,7 @@ const NavbarLanding = () => {
               </LinkUI>
             </NavbarMenuItem>
           ) : (
-            <Link href='#' className='text-black'>
+            <Link key='noticias-link-top' href='#' className='text-black'>
               {item.section}
             </Link>
           )
