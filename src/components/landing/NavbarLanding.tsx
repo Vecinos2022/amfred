@@ -102,7 +102,7 @@ const NavbarLanding = () => {
                 <DropdownTrigger>
                   <Button
                     disableRipple
-                    className='p-0 bg-transparent data-[hover=true]:bg-transparent'
+                    className='p-0 bg-transparent data-[hover=true]:bg-transparent text-xl text-[#275DAA]'
                     radius='sm'
                     variant='light'
                   >
@@ -119,13 +119,19 @@ const NavbarLanding = () => {
               >
                 {item.subsections.map((subsection, subIndex) => (
                   <DropdownItem className='text-black' key='autoscaling'>
-                    {subsection}
+                    <Link href='#' className='text-lg text-[#275DAA]'>
+                      {subsection}
+                    </Link>
                   </DropdownItem>
                 ))}
               </DropdownMenu>
             </Dropdown>
           ) : (
-            <Link key='noticias-link' href='#'>
+            <Link
+              key='noticias-link'
+              href='#'
+              className='text-xl text-[#275DAA]'
+            >
               {item.section}
             </Link>
           )
@@ -134,7 +140,12 @@ const NavbarLanding = () => {
 
       <NavbarContent justify='end' className='hidden md:flex'>
         <NavbarItem>
-          <Button as={Link} color='warning' href='/login' variant='flat'>
+          <Button
+            as={Link}
+            className='rounded bg-[#275DAA] text-[white]'
+            href='/login'
+            variant='flat'
+          >
             {user ? user.nombre : 'Mi Cuenta'}
           </Button>
         </NavbarItem>
@@ -150,7 +161,7 @@ const NavbarLanding = () => {
                     <DropdownTrigger>
                       <Button
                         disableRipple
-                        className='p-0 bg-transparent data-[hover=true]:bg-transparent'
+                        className='p-0 bg-transparent data-[hover=true]:bg-transparent text-xl text-[#275DAA]'
                         radius='sm'
                         variant='light'
                       >
@@ -166,8 +177,10 @@ const NavbarLanding = () => {
                     }}
                   >
                     {item.subsections.map((subsection, subIndex) => (
-                      <DropdownItem className='text-black' key='autoscaling'>
-                        {subsection}
+                      <DropdownItem key='autoscaling'>
+                        <Link href='#' className='text-lg text-[#275DAA]'>
+                          {subsection}
+                        </Link>
                       </DropdownItem>
                     ))}
                   </DropdownMenu>
@@ -175,7 +188,11 @@ const NavbarLanding = () => {
               </LinkUI>
             </NavbarMenuItem>
           ) : (
-            <Link key='noticias-link-top' href='#' className='text-black'>
+            <Link
+              key='noticias-link-top'
+              href='#'
+              className='text-[#275DAA] text-xl'
+            >
               {item.section}
             </Link>
           )

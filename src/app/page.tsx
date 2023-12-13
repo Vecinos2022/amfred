@@ -1,4 +1,5 @@
 'use client'
+import FooterLanding from '@/components/landing/FooterLanding'
 import HeroLanding from '@/components/landing/HeroLanding'
 import NavbarLanding from '@/components/landing/NavbarLanding'
 
@@ -7,6 +8,7 @@ const Home = () => {
     <>
       <NavbarLanding />
       <HeroLanding />
+      <FooterLanding />
     </>
   )
 }

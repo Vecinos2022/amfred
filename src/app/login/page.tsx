@@ -60,91 +60,98 @@ const LoginPage = () => {
       {session.status === 'authenticated' ? (
         <LoaderScreen />
       ) : (
-        <section className='relative flex flex-wrap lg:h-screen lg:items-center'>
-          <div className='w-full h-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24 bg-default-200'>
-            <div className='mx-auto max-w-lg text-center'>
-              <h1 className='text-2xl mt-0  mb-8 font-bold sm:text-3xl'>
-                Iniciar Sesión
-              </h1>
+        <section className='relative flex flex-wrap lg:h-screen lg:items-center w-full'>
+          <div className='w-screen h-screen flex items-center justify-center px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24 bg-default-200'>
+            <div>
+              <Image
+                alt='Logo AMFRED'
+                src={imagenAmfred}
+                className='w-full  object-cover lg:hidden md:block'
+              />
+              <div className='mx-auto max-w-lg text-center'>
+                <h1 className='text-2xl mt-0  mb-8 font-bold sm:text-3xl'>
+                  Iniciar Sesión
+                </h1>
 
-              <p className='mt-4 text-gray-500'>
-                Sistema de control de asistencias
-              </p>
-            </div>
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className='mx-auto mb-0 mt-8 max-w-md space-y-4'
-            >
-              <div>
-                <label htmlFor='email' className='sr-only'>
-                  Correo
-                </label>
-                <Input
-                  type='email'
-                  label='Correo electrónico'
-                  isInvalid={errors.email ? true : false}
-                  errorMessage={errors.email ? errors.email.message : ''}
-                  {...register('email', {
-                    required: 'Este campo es requerido'
-                  })}
-                />
-              </div>
-
-              <div>
-                <Input
-                  label='Contraseña'
-                  endContent={
-                    <button
-                      className='focus:outline-none'
-                      type='button'
-                      onClick={() => toggleIsPasswordVisible()}
-                    >
-                      {isPasswordVisible ? (
-                        <BsEyeSlash className={btnShowPasswordStyles} />
-                      ) : (
-                        <BsEyeFill className={btnShowPasswordStyles} />
-                      )}
-                    </button>
-                  }
-                  type={isPasswordVisible ? 'text' : 'password'}
-                  {...register('password', {
-                    required: 'Este campo es requerido'
-                  })}
-                  isInvalid={errors.password ? true : false}
-                  errorMessage={errors.password ? errors.password.message : ''}
-                />
-              </div>
-              <div className='flex justify-center'>
-                {error && <ErrorLabel text={error ? error : ''} />}
-              </div>
-              <div className='flex items-center justify-between'>
-                <Button
-                  type='submit'
-                  color='primary'
-                  className='block w-full'
-                  isLoading={isPosting}
-                >
-                  Iniciar sesión
-                </Button>
-              </div>
-              <div className='flex items-center justify-center'>
-                <p className='text-center text-sm text-gray-500'>
-                  <a className='underline' href='#'>
-                    Recuperar contraseña
-                  </a>
+                <p className='mt-4 text-gray-500'>
+                  Sistema de control de asistencias
                 </p>
               </div>
-            </form>
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className='mx-auto mb-0 mt-8 max-w-md space-y-4'
+              >
+                <div>
+                  <label htmlFor='email' className='sr-only'>
+                    Correo
+                  </label>
+                  <Input
+                    type='email'
+                    label='Correo electrónico'
+                    isInvalid={errors.email ? true : false}
+                    errorMessage={errors.email ? errors.email.message : ''}
+                    {...register('email', {
+                      required: 'Este campo es requerido'
+                    })}
+                  />
+                </div>
+
+                <div>
+                  <Input
+                    label='Contraseña'
+                    endContent={
+                      <button
+                        className='focus:outline-none'
+                        type='button'
+                        onClick={() => toggleIsPasswordVisible()}
+                      >
+                        {isPasswordVisible ? (
+                          <BsEyeSlash className={btnShowPasswordStyles} />
+                        ) : (
+                          <BsEyeFill className={btnShowPasswordStyles} />
+                        )}
+                      </button>
+                    }
+                    type={isPasswordVisible ? 'text' : 'password'}
+                    {...register('password', {
+                      required: 'Este campo es requerido'
+                    })}
+                    isInvalid={errors.password ? true : false}
+                    errorMessage={
+                      errors.password ? errors.password.message : ''
+                    }
+                  />
+                </div>
+                <div className='flex justify-center'>
+                  {error && <ErrorLabel text={error ? error : ''} />}
+                </div>
+                <div className='flex items-center justify-between'>
+                  <Button
+                    type='submit'
+                    color='primary'
+                    className='block w-full'
+                    isLoading={isPosting}
+                  >
+                    Iniciar sesión
+                  </Button>
+                </div>
+                <div className='flex items-center justify-center'>
+                  <p className='text-center text-sm text-gray-500'>
+                    <a className='underline' href='#'>
+                      Recuperar contraseña
+                    </a>
+                  </p>
+                </div>
+              </form>
+            </div>
           </div>
-          <div className='relative flex justify-center items-center w-full  lg:h-full lg:w-1/2'>
-            <div className='flex flex-col items-center'>
-              <div className='w-full max-w-xs sm:max-w-md lg:max-w-lg'>
-                <Image
-                  alt='Logo AMFRED'
-                  src={imagenAmfred}
-                  className='w-full h-full object-cover'
-                />
-              </div>
+          <div className='relative hidden lg:flex justify-center items-center w-full  lg:h-full lg:w-1/2'>
+            <div className='w-full flex items-center max-w-xs sm:max-w-md lg:max-w-lg'>
+              <Image
+                alt='Logo AMFRED'
+                src={imagenAmfred}
+                className='w-full h-full object-cover'
+              />
             </div>
           </div>
         </section>
