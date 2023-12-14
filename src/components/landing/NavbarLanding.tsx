@@ -37,6 +37,7 @@ const NavbarLanding = () => {
   const menuItems = [
     {
       'section': 'Nosotros',
+      'isOpen': false,
       'subsections': [
         'Mision y vision',
         'Propuestas de valor',
@@ -45,6 +46,7 @@ const NavbarLanding = () => {
     },
     {
       'section': 'Beneficios',
+      'isOpen': false,
       'subsections': [
         'Convenios de colaboración',
         'Educación',
@@ -55,14 +57,17 @@ const NavbarLanding = () => {
     },
     {
       'section': 'Convenios',
+      'isOpen': false,
       'subsections': ['Proximamente']
     },
     {
       'section': 'Afiliate',
+      'isOpen': false,
       'subsections': ['Formato de afiliación', 'Código de etica']
     },
     {
       'section': 'Noticias',
+      'isOpen': false,
       'subsections': []
     }
   ]
@@ -111,14 +116,14 @@ const NavbarLanding = () => {
                 </DropdownTrigger>
               </NavbarItem>
               <DropdownMenu
-                aria-label='ACME '
+                aria-label={item.section}
                 className='w-[340px]'
                 itemClasses={{
                   base: 'gap-4'
                 }}
               >
                 {item.subsections.map((subsection, subIndex) => (
-                  <DropdownItem className='text-black' key='autoscaling'>
+                  <DropdownItem className='text-black' key={subIndex}>
                     <Link href='#' className='text-lg text-[#275DAA]'>
                       {subsection}
                     </Link>
