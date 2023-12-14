@@ -76,7 +76,7 @@ const NavbarLanding = () => {
     {
       'section': 'Noticias',
       'isOpen': false,
-      'subsections': ['Proximamente']
+      'subsections': []
     }
   ]
 
@@ -93,11 +93,6 @@ const NavbarLanding = () => {
         onMouseEnter={() => {
           setIsDropdownOpen(index)
         }}
-        /*  onMouseLeave={() => {
-          setTimeout(() => {
-            setIsDropdownOpen(-1)
-          }, 200)
-        }} */
       >
         <Dropdown key={index} isOpen={isDropdownOpen == index}>
           <NavbarItem>
@@ -143,7 +138,8 @@ const NavbarLanding = () => {
     return (
       <div className='dropdown-menu'>
         <ul>
-          <li>{name}</li>
+          {/* hay que cambiar este href */}
+          <Link href={'../../mision_vision'}>{name}</Link>
         </ul>
       </div>
     )
@@ -159,13 +155,19 @@ const NavbarLanding = () => {
 
       <NavbarContent className='sm:hidden pr-3' justify='center'>
         <NavbarBrand>
-          <LogoMain />
+          {/* hay que cambiar este href */}
+          <Link href={'/'}>
+            <LogoMain />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className='hidden sm:flex gap-4' justify='start'>
         <NavbarBrand>
-          <LogoMain />
+          {/* hay que cambiar este href */}
+          <Link href={'/'}>
+            <LogoMain />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
@@ -176,7 +178,8 @@ const NavbarLanding = () => {
           ) : (
             <Link
               key='noticias-link'
-              href='#'
+              /* hay que cambiar este href */
+              href='../../noticias'
               className='text-xl text-[#275DAA]'
             >
               {item.section}

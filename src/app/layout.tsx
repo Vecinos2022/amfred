@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
+import NavbarLanding from '@/components/landing/NavbarLanding'
+import FooterLanding from '@/components/landing/FooterLanding'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,10 +18,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={inter.className}>
         <Providers>
-          <div className="flex flex-col h-full">{children}</div>
+          <NavbarLanding />
+          <div className='flex flex-col h-full'>{children}</div>
+          <FooterLanding />
         </Providers>
       </body>
     </html>
