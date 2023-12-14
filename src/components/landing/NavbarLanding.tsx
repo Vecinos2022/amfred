@@ -21,6 +21,7 @@ import { useEffect, useState } from 'react'
 import { useAuthBoundStore } from '@/store/auth/authSharedSlice'
 import { useSession } from 'next-auth/react'
 import LogoMain from '../shared/LogoMain'
+import { log } from 'console'
 
 const NavbarLanding = () => {
   const session = useSession()
@@ -33,8 +34,15 @@ const NavbarLanding = () => {
   const { setUser } = useAuthBoundStore()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(-1)
 
-  const menuItems = [
+  interface Item {
+    section: string
+    isOpen: boolean
+    subsections: string[]
+  }
+
+  const menuItems: Item[] = [
     {
       'section': 'Nosotros',
       'isOpen': false,
@@ -68,7 +76,7 @@ const NavbarLanding = () => {
     {
       'section': 'Noticias',
       'isOpen': false,
-      'subsections': []
+      'subsections': ['Proximamente']
     }
   ]
 
@@ -78,6 +86,68 @@ const NavbarLanding = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session])
+
+  const DropdownNav = ({ item, index }: { item: Item; index: number }) => {
+    return (
+      <div
+        onMouseEnter={() => {
+          setIsDropdownOpen(index)
+        }}
+        /*  onMouseLeave={() => {
+          setTimeout(() => {
+            setIsDropdownOpen(-1)
+          }, 200)
+        }} */
+      >
+        <Dropdown key={index} isOpen={isDropdownOpen == index}>
+          <NavbarItem>
+            <DropdownTrigger>
+              <Button
+                disableRipple
+                className='p-0 bg-transparent data-[hover=true]:bg-transparent text-xl text-[#275DAA]'
+                radius='sm'
+                variant='light'
+              >
+                {item.section}
+              </Button>
+            </DropdownTrigger>
+          </NavbarItem>
+          <div
+            onMouseEnter={() => {
+              setIsDropdownOpen(index)
+            }}
+            onMouseLeave={() => {
+              setIsDropdownOpen(-1)
+            }}
+          >
+            <DropdownMenu
+              aria-label={item.section}
+              className='w-[340px]'
+              itemClasses={{
+                base: 'gap-4'
+              }}
+            >
+              {item.subsections.map((subsection, subIndex) => (
+                <DropdownItem className='text-black' key={subIndex}>
+                  <DropdownMenuNav name={subsection} />
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          </div>
+        </Dropdown>
+      </div>
+    )
+  }
+
+  const DropdownMenuNav = ({ name }: { name: string }) => {
+    return (
+      <div className='dropdown-menu'>
+        <ul>
+          <li>{name}</li>
+        </ul>
+      </div>
+    )
+  }
 
   return (
     <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
@@ -102,35 +172,7 @@ const NavbarLanding = () => {
       <NavbarContent className='hidden sm:flex gap-4' justify='center'>
         {menuItems.map((item, index) =>
           item.subsections.length >= 1 ? (
-            <Dropdown key={index}>
-              <NavbarItem>
-                <DropdownTrigger>
-                  <Button
-                    disableRipple
-                    className='p-0 bg-transparent data-[hover=true]:bg-transparent text-xl text-[#275DAA]'
-                    radius='sm'
-                    variant='light'
-                  >
-                    {item.section}
-                  </Button>
-                </DropdownTrigger>
-              </NavbarItem>
-              <DropdownMenu
-                aria-label={item.section}
-                className='w-[340px]'
-                itemClasses={{
-                  base: 'gap-4'
-                }}
-              >
-                {item.subsections.map((subsection, subIndex) => (
-                  <DropdownItem className='text-black' key={subIndex}>
-                    <Link href='#' className='text-lg text-[#275DAA]'>
-                      {subsection}
-                    </Link>
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown>
+            <DropdownNav item={item} index={index} />
           ) : (
             <Link
               key='noticias-link'
@@ -156,6 +198,7 @@ const NavbarLanding = () => {
         </NavbarItem>
       </NavbarContent>
 
+      {/* Side menu */}
       <NavbarMenu>
         {menuItems.map((item, index) =>
           item.subsections.length >= 1 ? (

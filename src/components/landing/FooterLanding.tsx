@@ -30,7 +30,7 @@ const FooterLanding = () => {
     },
     {
       'section': 'Noticias',
-      'subsections': []
+      'subsections': ['Proximamente']
     }
   ]
   return (
