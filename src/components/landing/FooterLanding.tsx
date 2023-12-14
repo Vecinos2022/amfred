@@ -1,4 +1,5 @@
 import LogoMain from '../shared/LogoMain'
+import Link from 'next/link'
 
 const FooterLanding = () => {
   const menuItems = [
@@ -30,7 +31,7 @@ const FooterLanding = () => {
     },
     {
       'section': 'Noticias',
-      'subsections': ['Proximamente']
+      'subsections': []
     }
   ]
   return (
@@ -123,13 +124,12 @@ const FooterLanding = () => {
                     {item.subsections.map((subsection, subIndex) => (
                       <>
                         <li>
-                          <a
-                            href='#'
+                          <Link
+                            href='../../mision_vision'
                             className='text-gray-700 transition hover:opacity-75'
                           >
-                            {' '}
-                            {subsection}{' '}
-                          </a>
+                            {subsection}
+                          </Link>
                         </li>
                       </>
                     ))}
@@ -138,7 +138,12 @@ const FooterLanding = () => {
               </>
             ) : (
               <>
-                <p className='font-medium text-gray-900'>{item.section}</p>
+                <Link
+                  href={'../../noticias'}
+                  className='font-medium text-gray-900'
+                >
+                  {item.section}
+                </Link>
               </>
             )
           )}

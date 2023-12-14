@@ -39,7 +39,9 @@ const NosotrosMisionVision = () => {
             </div>
 
             <div className='lg:py-24'>
-              <h2 className='text-3xl font-bold sm:text-4xl'>Visión</h2>
+              <h2 className='text-3xl text-[#275DAA] font-bold sm:text-4xl'>
+                Visión
+              </h2>
 
               <p className='mt-4 text-gray-600'>
                 Formar Asociaciones de Colonos ejemplares integradas a las
