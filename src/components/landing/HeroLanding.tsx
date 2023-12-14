@@ -1,47 +1,35 @@
 const HeroLanding = () => {
   return (
-    <section className='bg-gray-50'>
-      <div className='mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center'>
-        <div className='mx-auto max-w-xl text-center'>
-          <div className='flex justify-center p-5 mb-5'>
-            <section className='bg-gray-50'>
-              <div className='mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center'>
-                <div className='mx-auto max-w-xl text-center'>
-                  <h1 className='text-3xl font-extrabold sm:text-5xl'>
-                    AMFRED A.C.
-                    <strong className='font-extrabold text-[#275DAA] sm:block'>
-                      {' '}
-                      Increase Conversion.{' '}
-                    </strong>
-                  </h1>
+    <section className='relative bg-[url(/img/banner-1.png)] bg-cover bg-center bg-no-repeat'>
+      <div className='absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l'></div>
 
-                  <p className='mt-4 sm:text-xl/relaxed'>
-                    Es una organización sin fines de lucro cuyo objetivo
-                    primordial es generar estándares de Gobernanza Condominal
-                    para presentar un frente unido en problemas comunes de la
-                    sociedad.
-                  </p>
+      <div className='relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8'>
+        <div className='max-w-xl text-center ltr:sm:text-left rtl:sm:text-right'>
+          <h1 className='text-3xl  font-extrabold sm:text-5xl sm:text-[white]'>
+            AMFRED A.C.
+            <strong className='block font-extrabold text-rose-700'> </strong>
+          </h1>
 
-                  <div className='mt-8 flex flex-wrap justify-center gap-4'>
-                    <a
-                      className='block w-full rounded bg-[#275DAA] px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto'
-                      href='/get-started'
-                    >
-                      Registrate
-                    </a>
+          <p className='mt-4 max-w-lg sm:text-xl/relaxed sm:text-[white]'>
+            Organización sin fines de lucro cuyo objetivo primordial es generar
+            estándares de Gobernanza Condominal
+          </p>
 
-                    <a
-                      className='block w-full rounded px-12 py-3 text-sm font-medium text-[#275DAA] shadow hover:text-red-700 focus:outline-none focus:ring active:text-red-500 sm:w-auto'
-                      href='/about'
-                    >
-                      Sobre Nosotros
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </section>
+          <div className='mt-8 flex flex-wrap gap-4 text-center'>
+            <a
+              href='#'
+              className='block w-full rounded bg-[#275DAA] px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto'
+            >
+              Registrarte
+            </a>
+
+            <a
+              href='#'
+              className='block w-full rounded bg-white px-12 py-3 text-sm font-medium text-[#275DAA] shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto'
+            >
+              Sobre Nosotros
+            </a>
           </div>
-          <div className='mt-8 flex flex-wrap justify-center gap-4'></div>
         </div>
       </div>
     </section>
