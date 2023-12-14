@@ -172,7 +172,7 @@ const NavbarLanding = () => {
       <NavbarContent className='hidden sm:flex gap-4' justify='center'>
         {menuItems.map((item, index) =>
           item.subsections.length >= 1 ? (
-            <DropdownNav item={item} index={index} />
+            <DropdownNav key={index} item={item} index={index} />
           ) : (
             <Link
               key='noticias-link'
