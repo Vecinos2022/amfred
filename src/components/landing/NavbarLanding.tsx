@@ -72,11 +72,6 @@ const NavbarLanding = () => {
       'section': 'Afiliate',
       'isOpen': false,
       'subsections': ['Formato de afiliación', 'Código de etica']
-    },
-    {
-      'section': 'Noticias',
-      'isOpen': false,
-      'subsections': []
     }
   ]
 
