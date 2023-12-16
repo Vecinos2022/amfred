@@ -146,6 +146,7 @@ const NavbarLanding = () => {
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
+      className='flex'
     >
       <NavbarContent className='sm:hidden' justify='start'>
         <NavbarMenuToggle
@@ -155,14 +156,16 @@ const NavbarLanding = () => {
 
       <NavbarContent className='sm:hidden pr-3' justify='center'>
         <NavbarBrand>
-          {/* hay que cambiar este href */}
           <Link href={'/'}>
             <LogoMain />
           </Link>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className='hidden sm:flex gap-4' justify='start'>
+      <NavbarContent
+        className='hidden sm:inline-flex sm:w-20 gap-4'
+        justify='start'
+      >
         <NavbarBrand>
           {/* hay que cambiar este href */}
           <Link href={'/'}>
@@ -171,7 +174,7 @@ const NavbarLanding = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className='hidden sm:flex gap-4' justify='center'>
+      <NavbarContent className='hidden sm:flex sm:w-70 gap-4' justify='end'>
         {menuItems.map((item, index) =>
           item.subsections.length >= 1 ? (
             <DropdownNav key={index} item={item} index={index} />
@@ -188,7 +191,7 @@ const NavbarLanding = () => {
         )}
       </NavbarContent>
 
-      <NavbarContent justify='end' className='hidden md:flex'>
+      <NavbarContent justify='end' className='hidden sm:flex sm:w-10  w-35'>
         <NavbarItem>
           <Button
             as={Link}
