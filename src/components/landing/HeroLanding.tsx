@@ -57,11 +57,9 @@ const HeroLanding = () => {
                 Nuestras Oficinas
               </h2>
 
-              <p className='mt-4 text-gray-600'>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut
-                qui hic atque tenetur quis eius quos ea neque sunt, accusantium
-                soluta minus veniam tempora deserunt? Molestiae eius quidem quam
-                repellat.
+              <p className='mt-4 text-gray-600 text-xl'>
+                Ubicación de nuestras oficinas: Piso 7 de la Avenida Universidad
+                LB, Lomas del Guadiana, 34138 Durango, Dgo
               </p>
             </div>
           </div>
