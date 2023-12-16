@@ -1,5 +1,5 @@
 import { Image } from '@nextui-org/react'
-import logo from '../../assets/imgs/amfred_logo.png'
+import logo from '../../assets/imgs/AMFRED_LOGO1.png'
 
 type LogoMainProps = {
   width?: number

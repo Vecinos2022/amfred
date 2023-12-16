@@ -8,8 +8,8 @@ import FooterLanding from '@/components/landing/FooterLanding'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Control de asistencias - Vecinos Comprometidos',
-  description: 'Control de asistencias - Vecinos Comprometidos'
+  title: 'AMFRED A.C.',
+  description: 'AMFRED A.C.'
 }
 
 export default function RootLayout({

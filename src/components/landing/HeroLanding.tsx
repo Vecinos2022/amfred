@@ -1,3 +1,6 @@
+import { Image } from '@nextui-org/react'
+import img_torre from '../../assets/imgs/TORREV1_1.png'
+
 const HeroLanding = () => {
   return (
     <>
@@ -46,7 +49,10 @@ const HeroLanding = () => {
               ></iframe>
             </div>
 
-            <div className='lg:py-24'>
+            <div>
+              <div className='my-5'>
+                <Image alt='Torre V1 pasillo' src={img_torre.src} />
+              </div>
               <h2 className='text-3xl font-bold sm:text-4xl'>
                 Nuestras Oficinas
               </h2>
