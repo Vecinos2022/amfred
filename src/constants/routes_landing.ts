@@ -25,10 +25,6 @@ export const options: SidebarOption[] = [
   {
     name: 'Afiliate',
     id: 'afiliate'
-  },
-  {
-    name: 'Noticias',
-    id: 'noticias'
   }
 ]
 
