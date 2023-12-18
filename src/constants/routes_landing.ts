@@ -36,7 +36,7 @@ export const childOptions: childRoute[] = [
   // Subsecciones de nosotros
   {
     name: 'Misión y Visión',
-    path: '/misioin_vision',
+    path: '/mision_vision',
     id: 'nosotros'
   },
   //Subsecciones de afiliate
@@ -47,7 +47,7 @@ export const childOptions: childRoute[] = [
   },
   {
     name: 'Código de Ética',
-    path: '/',
+    path: '/codigo_etica',
     id: 'afiliate'
   }
   //Subsecciones noticias

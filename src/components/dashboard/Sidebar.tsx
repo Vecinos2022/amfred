@@ -21,7 +21,13 @@ const Sidebar: React.FC<SidebarProps> = ({ children, isSidebarOpen }) => {
       >
         <div className='px-2 pb-10'>
           <Link href='/admin/dashboard'>
-            <Button variant='shadow' color='primary' className='w-full' size='lg' startContent={<FaHome />}>
+            <Button
+              variant='shadow'
+              color='primary'
+              className='w-full'
+              size='lg'
+              startContent={<FaHome />}
+            >
               Dashboard
             </Button>
           </Link>
@@ -34,7 +40,8 @@ const Sidebar: React.FC<SidebarProps> = ({ children, isSidebarOpen }) => {
               aria-label={option.name}
               title={
                 <span className='text-sm flex align-middle content-center text-primary'>
-                  <option.icon className='text-lg' /> <span className='ml-2'>{option.name}</span>
+                  <option.icon className='text-lg' />{' '}
+                  <span className='ml-2'>{option.name}</span>
                 </span>
               }
             >
@@ -56,7 +63,10 @@ const Sidebar: React.FC<SidebarProps> = ({ children, isSidebarOpen }) => {
         </Accordion>
       </aside>
 
-      <div className='lg:ml-72 md:ml-64 sm:ml-64 bg-default-100' style={{ minHeight: '94vh' }}>
+      <div
+        className='lg:ml-72 md:ml-64 sm:ml-64 bg-default-100'
+        style={{ minHeight: '94vh' }}
+      >
         <div className='py-12 px-5 mt-14'>{children}</div>
       </div>
     </>

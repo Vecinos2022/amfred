@@ -23,7 +23,7 @@ import { useAuthBoundStore } from '@/store/auth/authSharedSlice'
 import { useSession } from 'next-auth/react'
 import LogoMain from '../shared/LogoMain'
 
-const NavbarLanding = () => {
+const TestComponents = () => {
   const session = useSession()
 
   const { user } = useAuthBoundStore((state) => ({
@@ -35,9 +35,6 @@ const NavbarLanding = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const closeMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
   useEffect(() => {
     if (session.status === 'authenticated') {
       setUser(session.data?.user)
@@ -152,6 +149,7 @@ const NavbarLanding = () => {
                   </DropdownTrigger>
                 </NavbarItem>
                 <DropdownMenu
+                  aria-label='ACME '
                   className='w-[340px]'
                   itemClasses={{
                     base: 'gap-4'
@@ -162,7 +160,6 @@ const NavbarLanding = () => {
                     .map((route, index) => (
                       <DropdownItem key={index}>
                         <Link
-                          onClick={closeMenu}
                           href={route.path}
                           className='text-lg text-[#275DAA]'
                         >
@@ -180,4 +177,4 @@ const NavbarLanding = () => {
   )
 }
 
-export default NavbarLanding
+export default TestComponents
