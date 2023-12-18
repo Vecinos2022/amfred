@@ -35,6 +35,11 @@ export const childOptions: childRoute[] = [
     path: '/mision_vision',
     id: 'nosotros'
   },
+  {
+    name: 'Propuestas de Valor',
+    path: '/propuestas_valor',
+    id: 'nosotros'
+  },
   //Subsecciones de afiliate
   {
     name: 'Formato de Afiliación',

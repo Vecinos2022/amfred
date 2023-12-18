@@ -5,11 +5,7 @@ const FooterLanding = () => {
   const menuItems = [
     {
       'section': 'Nosotros',
-      'subsections': [
-        'Mision y vision',
-        'Propuestas de valor',
-        'Nuestras oficinas'
-      ]
+      'subsections': ['Mision y vision', 'Propuestas de valor']
     },
     {
       'section': 'Beneficios',
@@ -113,11 +109,11 @@ const FooterLanding = () => {
           {/* END ICON SOCIAL MEDIA */}
         </div>
 
-        <div className='grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16'>
+        <div className='grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-5 lg:pt-16'>
           {menuItems.map((item, index) =>
             item.subsections.length >= 1 ? (
               <>
-                <div>
+                <div className='text-center'>
                   <p className='font-medium text-gray-900'>{item.section}</p>
 
                   <ul className='mt-6 space-y-4 text-sm'>
@@ -149,7 +145,7 @@ const FooterLanding = () => {
           )}
         </div>
 
-        <p className='text-xs text-gray-500'>
+        <p className='text-xs text-gray-500 text-center'>
           &copy; 2023. AMFRED A.C. Todos los derechso reservados.
         </p>
       </div>
