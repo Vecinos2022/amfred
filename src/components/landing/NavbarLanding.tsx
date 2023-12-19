@@ -34,6 +34,7 @@ const NavbarLanding = () => {
   const { setUser } = useAuthBoundStore()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [dropdownActive, setDropdownActive] = useState('')
 
   const closeMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -83,42 +84,40 @@ const NavbarLanding = () => {
       <NavbarContent justify='end' className='hidden sm:flex sm:w-10  w-35'>
         {options.map((option, index) => (
           <NavbarMenuItem key={index}>
-            <LinkUI className='w-full' color='foreground' href='#' size='lg'>
-              <Dropdown key={index}>
-                <NavbarItem>
-                  <DropdownTrigger>
-                    <Button
-                      disableRipple
-                      className='p-0 bg-transparent data-[hover=true]:bg-transparent text-xl text-[#275DAA]'
-                      radius='sm'
-                      variant='light'
-                    >
-                      {option.name}
-                    </Button>
-                  </DropdownTrigger>
-                </NavbarItem>
-                <DropdownMenu
-                  aria-label='ACME '
-                  className='w-[340px]'
-                  itemClasses={{
-                    base: 'gap-4'
-                  }}
-                >
-                  {childOptions
-                    .filter((childOption) => childOption.id === option.id)
-                    .map((route, index) => (
-                      <DropdownItem key='autoscaling'>
-                        <Link
-                          href={route.path}
-                          className='text-lg text-[#275DAA]'
-                        >
-                          {route.name}
-                        </Link>
-                      </DropdownItem>
-                    ))}
-                </DropdownMenu>
-              </Dropdown>
-            </LinkUI>
+            <Dropdown key={option.id}>
+              <NavbarItem>
+                <DropdownTrigger>
+                  <Button
+                    disableRipple
+                    className='p-0 bg-transparent data-[hover=true]:bg-transparent text-xl text-[#275DAA]'
+                    radius='sm'
+                    variant='light'
+                  >
+                    {option.name}
+                  </Button>
+                </DropdownTrigger>
+              </NavbarItem>
+              <DropdownMenu
+                aria-label='ACME '
+                className='w-[340px]'
+                itemClasses={{
+                  base: 'gap-4'
+                }}
+              >
+                {childOptions
+                  .filter((childOption) => childOption.id === option.id)
+                  .map((route, index) => (
+                    <DropdownItem key={index}>
+                      <Link
+                        href={route.path}
+                        className='text-lg text-[#275DAA]'
+                      >
+                        {route.name}
+                      </Link>
+                    </DropdownItem>
+                  ))}
+              </DropdownMenu>
+            </Dropdown>
           </NavbarMenuItem>
         ))}
         <NavbarItem>

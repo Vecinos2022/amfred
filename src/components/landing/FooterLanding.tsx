@@ -1,5 +1,6 @@
 import LogoMain from '../shared/LogoMain'
 import Link from 'next/link'
+import { childOptions, options } from '@/constants/routes_landing'
 
 const FooterLanding = () => {
   const menuItems = [
@@ -110,39 +111,27 @@ const FooterLanding = () => {
         </div>
 
         <div className='grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-5 lg:pt-16'>
-          {menuItems.map((item, index) =>
-            item.subsections.length >= 1 ? (
-              <>
-                <div className='text-center'>
-                  <p className='font-medium text-gray-900'>{item.section}</p>
+          {options.map((option, index) => (
+            <div className='text-center'>
+              <p className='font-medium text-gray-900'>{option.name}</p>
 
-                  <ul className='mt-6 space-y-4 text-sm'>
-                    {item.subsections.map((subsection, subIndex) => (
-                      <>
-                        <li>
-                          <Link
-                            href='../../mision_vision'
-                            className='text-gray-700 transition hover:opacity-75'
-                          >
-                            {subsection}
-                          </Link>
-                        </li>
-                      </>
-                    ))}
-                  </ul>
-                </div>
-              </>
-            ) : (
-              <>
-                <Link
-                  href={'../../noticias'}
-                  className='font-medium text-gray-900'
-                >
-                  {item.section}
-                </Link>
-              </>
-            )
-          )}
+              <ul className='mt-6 space-y-4 text-sm'>
+                {childOptions
+                  .filter((childOption) => childOption.id === option.id)
+                  .map((route, index) => (
+                    <li>
+                      <Link
+                      key={index}
+                        href={route.path}
+                        className='text-gray-700 transition hover:opacity-75'
+                      >
+                        {route.name}
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         <p className='text-xs text-gray-500 text-center'>
