@@ -3,34 +3,6 @@ import Link from 'next/link'
 import { childOptions, options } from '@/constants/routes_landing'
 
 const FooterLanding = () => {
-  const menuItems = [
-    {
-      'section': 'Nosotros',
-      'subsections': ['Mision y vision', 'Propuestas de valor']
-    },
-    {
-      'section': 'Beneficios',
-      'subsections': [
-        'Convenios de colaboración',
-        'Educación',
-        'Networking',
-        'Actualizaciones',
-        'Integración'
-      ]
-    },
-    {
-      'section': 'Convenios',
-      'subsections': ['Proximamente']
-    },
-    {
-      'section': 'Afiliate',
-      'subsections': ['Formato de afiliación', 'Código de etica']
-    },
-    {
-      'section': 'Noticias',
-      'subsections': []
-    }
-  ]
   return (
     <footer className='bg-white'>
       <div className='mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8'>
@@ -112,16 +84,15 @@ const FooterLanding = () => {
 
         <div className='grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-5 lg:pt-16'>
           {options.map((option, index) => (
-            <div className='text-center'>
+            <div key={index} className='text-center'>
               <p className='font-medium text-gray-900'>{option.name}</p>
 
               <ul className='mt-6 space-y-4 text-sm'>
                 {childOptions
                   .filter((childOption) => childOption.id === option.id)
                   .map((route, index) => (
-                    <li>
+                    <li key={index}>
                       <Link
-                      key={index}
                         href={route.path}
                         className='text-gray-700 transition hover:opacity-75'
                       >
