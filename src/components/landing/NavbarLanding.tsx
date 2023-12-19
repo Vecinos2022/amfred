@@ -143,7 +143,7 @@ const NavbarLanding = () => {
             <Dropdown backdrop='blur'>
               <DropdownTrigger>
                 <Button variant='solid' color='primary'>
-                  {user ? user.nombre : ''}
+                  {session.data?.user?.name}
                 </Button>
               </DropdownTrigger>
               <DropdownMenu variant='shadow' aria-label='Static Actions'>
