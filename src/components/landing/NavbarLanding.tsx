@@ -20,11 +20,13 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { useAuthBoundStore } from '@/store/auth/authSharedSlice'
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import LogoMain from '../shared/LogoMain'
 
 const NavbarLanding = () => {
   const session = useSession()
+  const router = useRouter()
 
   const { user } = useAuthBoundStore((state) => ({
     user: state.user,
@@ -46,6 +48,10 @@ const NavbarLanding = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session])
 
+  const handleLogout = () => {
+    signOut()
+    router.push('/login')
+  }
   return (
     <Navbar
       maxWidth='full'
@@ -133,14 +139,43 @@ const NavbarLanding = () => {
           </NavbarMenuItem>
         ))}
         <NavbarItem>
-          <Button
-            as={Link}
-            className='rounded bg-[#275DAA] text-[white]'
-            href='/login'
-            variant='flat'
-          >
-            {user ? user.nombre : 'Mi Cuenta'}
-          </Button>
+          {session.status === 'authenticated' ? (
+            <Dropdown backdrop='blur'>
+              <DropdownTrigger>
+                <Button variant='solid' color='primary'>
+                  {user ? user.nombre : ''}
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu variant='shadow' aria-label='Static Actions'>
+                <DropdownItem
+                  className='text-black'
+                  key='new'
+                  showDivider
+                  onClick={() => router.push('/admin/usuarios')}
+                >
+                  Usuarios
+                </DropdownItem>
+
+                <DropdownItem
+                  key='delete'
+                  className='text-danger'
+                  color='danger'
+                  onClick={() => handleLogout()}
+                >
+                  Cerrar sesión
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          ) : (
+            <Button
+              as={Link}
+              className='rounded bg-[#275DAA] text-[white]'
+              href='/login'
+              variant='flat'
+            >
+              {user ? user.nombre : 'Mi Cuenta'}
+            </Button>
+          )}
         </NavbarItem>
       </NavbarContent>
 
