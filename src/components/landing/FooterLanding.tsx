@@ -4,8 +4,8 @@ import { childOptions, options } from '@/constants/routes_landing'
 
 const FooterLanding = () => {
   return (
-    <footer className='bg-white'>
-      <div className='mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8'>
+    <footer className='bg-[#14233d]'>
+      <div className='mx-auto max-w-screen-xl space-y-2 px-4 py-16 sm:px-6 lg:space-y-2 lg:px-8'>
         <div className='sm:flex sm:items-center sm:justify-between'>
           <LogoMain />
 
@@ -16,7 +16,7 @@ const FooterLanding = () => {
                 href='/'
                 rel='noreferrer'
                 target='_blank'
-                className='text-gray-700 transition hover:opacity-75'
+                className='text-[#c6d7f1] transition hover:opacity-75'
               >
                 <span className='sr-only'>Facebook</span>
 
@@ -40,7 +40,7 @@ const FooterLanding = () => {
                 href='/'
                 rel='noreferrer'
                 target='_blank'
-                className='text-gray-700 transition hover:opacity-75'
+                className='text-[#c6d7f1] transition hover:opacity-75'
               >
                 <span className='sr-only'>Instagram</span>
 
@@ -64,7 +64,7 @@ const FooterLanding = () => {
                 href='/'
                 rel='noreferrer'
                 target='_blank'
-                className='text-gray-700 transition hover:opacity-75'
+                className='text-[#c6d7f1] transition hover:opacity-75'
               >
                 <span className='sr-only'>Twitter</span>
 
@@ -82,10 +82,10 @@ const FooterLanding = () => {
           {/* END ICON SOCIAL MEDIA */}
         </div>
 
-        <div className='grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-5 lg:pt-16'>
+        <div className='grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16'>
           {options.map((option, index) => (
             <div key={index} className='text-center'>
-              <p className='font-medium text-gray-900'>{option.name}</p>
+              <p className='font-medium text-[#f3f6fc]'>{option.name}</p>
 
               <ul className='mt-6 space-y-4 text-sm'>
                 {childOptions
@@ -94,7 +94,7 @@ const FooterLanding = () => {
                     <li key={index}>
                       <Link
                         href={route.path}
-                        className='text-gray-700 transition hover:opacity-75'
+                        className='text-[#c6d7f1] transition hover:opacity-75'
                       >
                         {route.name}
                       </Link>
@@ -105,7 +105,7 @@ const FooterLanding = () => {
           ))}
         </div>
 
-        <p className='text-xs text-gray-500 text-center'>
+        <p className='text-xs text-[#f3f6fc] text-center'>
           &copy; 2023. AMFRED A.C. Todos los derechso reservados.
         </p>
       </div>

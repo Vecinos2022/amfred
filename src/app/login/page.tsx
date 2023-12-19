@@ -12,8 +12,8 @@ import LoaderScreen from '@/components/shared/LoaderScreen'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import logoAmfred from '../../assets/imgs/amfred_logo.png'
 import imagenAmfred from '../../assets/imgs/amfred_logo.png'
+import Link from 'next/link'
 
 interface LoginFormInputs {
   email: string
@@ -146,13 +146,16 @@ const LoginPage = () => {
             </div>
           </div>
           <div className='relative hidden lg:flex justify-center items-center w-full  lg:h-full lg:w-1/2'>
-            <div className='w-full flex items-center max-w-xs sm:max-w-md lg:max-w-lg'>
+            <Link
+              href={'/'}
+              className='w-full flex flex-col items-center max-w-xs sm:max-w-md lg:max-w-lg '
+            >
               <Image
                 alt='Logo AMFRED'
                 src={imagenAmfred}
                 className='w-full h-full object-cover'
               />
-            </div>
+            </Link>
           </div>
         </section>
       )}
