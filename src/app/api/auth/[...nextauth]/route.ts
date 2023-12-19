@@ -11,11 +11,6 @@ const handler = NextAuth({
   session: {
     strategy: 'jwt'
   },
-  // events: {
-  //   async session(token) {
-  //     console.log(token)
-  //   }
-  // },
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -29,18 +24,13 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         await connectDB()
-        let userFound = await User.findOne({ correo: credentials?.email })
+        let userFound = await User.findOne({ email: credentials?.email })
         if (!userFound) throw new Error('Crendenciales invalidas')
         const passwordMatch = await bycrypt.compare(
           credentials!.password,
-          userFound.contrasena
+          userFound.password
         )
         if (!passwordMatch) throw new Error('Crendenciales invalidas')
-        // userFound = {
-        //   name: userFound.nombre as string,
-        //   email: userFound.correo as string,
-        //   rol: userFound.rol as string
-        // }
         return userFound
       }
     })

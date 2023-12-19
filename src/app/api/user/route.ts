@@ -1,7 +1,7 @@
-import { getToken } from 'next-auth/jwt'
 import { connectDB } from '@/libs/mongodb'
-import { NextRequest, NextResponse } from 'next/server'
 import User from '@/models/User'
+import bcrypt from 'bcryptjs'
+import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(req: NextRequest) {
   await connectDB()
@@ -20,7 +20,14 @@ export async function POST(req: NextRequest) {
 
   await connectDB()
 
-  const usuario = new User(data)
+  const password = await bcrypt.hash(data.password, 12)
+  const usuario = new User({
+    email: data.email,
+    password: password,
+    description: data.description,
+    role: data.role,
+    name: data.name
+  })
 
   try {
     await usuario.save()
