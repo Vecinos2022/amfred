@@ -173,7 +173,7 @@ const NavbarLanding = () => {
               href='/login'
               variant='flat'
             >
-              {user ? user.nombre : 'Mi Cuenta'}
+              {user ? user.name : 'Mi Cuenta'}
             </Button>
           )}
         </NavbarItem>
