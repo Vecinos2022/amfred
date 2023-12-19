@@ -1,7 +1,3 @@
-import Link from 'next/link'
-import formato from '../../assets/imgs/formato_afiliacion.jpg'
-import cedula from '../../assets/imgs/cedula_afiliacion.jpg'
-
 const FormatoAfiliacion = () => {
   return (
     <>
@@ -23,8 +19,8 @@ const FormatoAfiliacion = () => {
 
                 <div className='mt-4 md:mt-8'>
                   <a
-                    href={'/img/formato_afiliacion.jpg'}
-                    download={'Formato de afiliación.jpg'}
+                    href={'/docs/formato_afiliacion.pdf'}
+                    download={'Formato de afiliación.pdf'}
                     className='inline-block rounded border border-white bg-white px-12 py-3 text-sm font-medium text-blue-500 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring focus:ring-yellow-400'
                   >
                     Descargar Formato
@@ -32,8 +28,8 @@ const FormatoAfiliacion = () => {
                 </div>
                 <div className='mt-4 md:mt-8'>
                   <a
-                    href={'/img/cedula_afiliacion.jpg'}
-                    download={'Cedula de afiliacion.jpg'}
+                    href={'/docs/cedula_afiliacion.pdf'}
+                    download={'Cedula de afiliacion.pdf'}
                     className='inline-block rounded border border-white bg-white px-12 py-3 text-sm font-medium text-blue-500 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring focus:ring-yellow-400'
                   >
                     Descargar Cedula
