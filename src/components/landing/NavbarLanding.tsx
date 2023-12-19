@@ -84,7 +84,11 @@ const NavbarLanding = () => {
       <NavbarContent justify='end' className='hidden sm:flex sm:w-10  w-35'>
         {options.map((option, index) => (
           <NavbarMenuItem key={index}>
-            <div onMouseEnter={() => setDropdownActive(index)}>
+            <div
+              onMouseEnter={() => setDropdownActive(index)}
+              onMouseLeave={() => setDropdownActive(-1)}
+              onWheel={() => setDropdownActive(-1)}
+            >
               <Dropdown isOpen={dropdownActive == index} key={option.id}>
                 <NavbarItem>
                   <DropdownTrigger>
@@ -101,6 +105,7 @@ const NavbarLanding = () => {
                 <div
                   onMouseEnter={() => setDropdownActive(index)}
                   onMouseLeave={() => setDropdownActive(-1)}
+                  onWheel={() => setDropdownActive(-1)}
                 >
                   <DropdownMenu
                     aria-label='ACME '
