@@ -25,6 +25,10 @@ export const options: SidebarOption[] = [
   {
     name: 'Afiliate',
     id: 'afiliate'
+  },
+  {
+    name: 'Networking',
+    id: 'networking'
   }
 ]
 
@@ -50,6 +54,11 @@ export const childOptions: childRoute[] = [
     name: 'Código de Ética',
     path: '/codigo_etica',
     id: 'afiliate'
+  },
+  //Subsecciones networking
+  {
+    name: 'Noticias',
+    path: '/noticias',
+    id: 'networking'
   }
-  //Subsecciones noticias
 ]

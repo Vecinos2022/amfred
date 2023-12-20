@@ -4,6 +4,7 @@ import img_torre from '../../assets/imgs/TORREV1_1.png'
 const HeroLanding = () => {
   return (
     <>
+      {/* Inicio primer seeción */}
       <section className='relative bg-[url(/img/banner_amfred.jpg)] bg-cover bg-center bg-no-repeat'>
         <div className='absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l'></div>
 
@@ -18,25 +19,11 @@ const HeroLanding = () => {
               Organización sin fines de lucro cuyo objetivo primordial es
               generar estándares de Gobernanza Condominal
             </p>
-
-            <div className='mt-8 flex flex-wrap gap-4 text-center'>
-              <a
-                href='#'
-                className='block w-full rounded bg-[#275DAA] px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto'
-              >
-                Registrarte
-              </a>
-
-              <a
-                href='#'
-                className='block w-full rounded bg-white px-12 py-3 text-sm font-medium text-[#275DAA] shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto'
-              >
-                Sobre Nosotros
-              </a>
-            </div>
           </div>
         </div>
       </section>
+      {/* Fin primer seccion */}
+      {/* Inicio nuestras oficinas */}
       <section>
         <div className='mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16'>
           <div className='grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16'>
@@ -65,6 +52,19 @@ const HeroLanding = () => {
           </div>
         </div>
       </section>
+      {/* Fin nuestras oficinas */}
+      {/* Inicio banner informativo */}
+      <section className='bg-[#1e3e6e] text-white'>
+        <div className='mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-50 lg:items-center'>
+          <div className='mx-auto max-w-3xl text-center'>
+            <h1 className='bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl'>
+              Somos el pilar de una
+              <span className='sm:block'> SOCIEDAD ORGANIZADA </span>
+            </h1>
+          </div>
+        </div>
+      </section>
+      {/* Fin banner informativo */}
     </>
   )
 }
