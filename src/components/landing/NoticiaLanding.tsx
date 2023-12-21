@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import Link from 'next/link'
 import { Accordion, AccordionItem } from '@nextui-org/react'
 
 const Noticia = () => {
@@ -45,6 +46,14 @@ const Noticia = () => {
     <>
       <section>
         <div className='mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8'>
+          <div className='pb-10'>
+            <Link
+              href={'/noticias'}
+              className='text-xl font-black hover:text-[#275DAA]'
+            >
+              Noticias recientes
+            </Link>
+          </div>
           <div className='max-w-3xl'>
             <h2 className='text-3xl font-bold sm:text-4xl text-[#275DAA]'>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
