@@ -3,16 +3,21 @@ import Link from 'next/link'
 const Noticias = () => {
   return (
     <>
-      <section>
-        <div className='text-gray-900 pt-12 pr-0 pb-14 pl-0 bg-white'>
-          <div
-            className='w-full pt-4 pr-5 pb-6 pl-5 mt-0 mr-auto mb-0 ml-auto space-y-5 sm:py-8 md:py-12 sm:space-y-8 md:space-y-16
-        max-w-7xl'
+      <section className='p-20'>
+        <div className='flex flex-row justify-between py-5'>
+          <h1 className='text-xl md:text-4xl font-black'>ÚLTIMAS NOTICIAS</h1>
+          <Link
+            href={'/todas_noticias'}
+            className='font-bold hover:text-[#275DAA] text-sm md:text-lg'
           >
-            {/* Comeinzo notica más reciente */}
+            MOSTRAR TODAS
+          </Link>
+        </div>
+        <div className='grid grid-cols-1 grid-rows-4  md:grid-cols-4 md:grid-rows-2 gap-4'>
+          <div className='md:col-span-2 md:row-span-2'>
             <Link href={'/noticia'}>
-              <div className='flex flex-col items-center sm:px-5 md:flex-row'>
-                <div className='flex flex-col items-start justify-center w-full h-full pt-6 pr-0 pb-6 pl-0 mb-6 md:mb-0 md:w-1/2'>
+              <div className='flex flex-col items-center sm:px-5 '>
+                <div className='flex flex-col items-start justify-center w-full h-full pt-6 pr-0 pb-6 pl-0 mb-6 md:mb-0 '>
                   <div
                     className='flex flex-col items-start justify-center h-full space-y-3 transform md:pr-10 lg:pr-16
               md:space-y-5'
@@ -54,167 +59,164 @@ const Noticias = () => {
                     </div>
                   </div>
                 </div>
-                <div className='w-full md:w-1/2'>
-                  <div className='block hover:scale-105 duration-500 cursor-pointer object-cover'>
+                <div>
+                  <p className='py-5'>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores qui excepturi cum inventore nemo officiis earum esse
+                    id provident tempora optio minus pariatur iure dignissimos,
+                    repudiandae praesentium quam veritatis unde!
+                  </p>
+                </div>
+                <div className='w-full'>
+                  <div className='block'>
                     <img
                       src='https://images.unsplash.com/photo-1626314928277-1d373ddb6428?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mzd8fHxlbnwwfHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
-                      className='object-cover rounded-lg max-h-64 sm:max-h-96 btn- w-full h-full'
+                      className='object-cover rounded-lg max-h-64 sm:max-h-96 btn- w-full h-full hover:scale-95 transition duration-300 ease-in-out'
                     />
                   </div>
                 </div>
               </div>
             </Link>
-            {/* Fin noticia más reciente */}
-            {/* Comienzo resto de noticias */}
-            <div className='grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16'>
-              {/* Comienzo resto de uno noticia */}
-              <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
-                <Link
-                  href={'/noticia'}
-                  className='hover:scale-105 duration-500 cursor-pointer object-cover'
-                >
-                  <img
-                    src='https://images.unsplash.com/photo-1626318305863-bb23d0297c0b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
-                    className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-'
-                  />
-                  <p
-                    className='bg-[#275DAA] flex items-center leading-none text-sm font-medium text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
+          </div>
+          <div className='md:col-start-3 '>
+            <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
+              <Link href={'/noticia'} className='hover:scale-95'>
+                <img
+                  src='https://images.unsplash.com/photo-1626318305863-bb23d0297c0b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
+                  className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56'
+                />
+                <p
+                  className='bg-[#275DAA] flex items-center leading-none text-sm font-medium text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
               rounded-full uppercase '
-                  >
-                    Entertainment
-                  </p>
-                  <a className='text-lg font-bold sm:text-xl md:text-2xl'>
-                    Improving your day to the MAX
-                  </a>
-                  <p className='text-sm text-black'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam,
-                  </p>
-                  <div className='pt-2 pr-0 pb-0 pl-0'>
-                    <a className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-0 underline'>
-                      Jack Sparrow
-                    </a>
-                    <p className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-1'>
-                      · 23rd, March 2021 ·
-                    </p>
-                    <p className='inline text-xs font-medium text-gray-300 mt-0 mr-1 mb-0 ml-1'>
-                      1hr 20min. read
-                    </p>
-                  </div>
-                </Link>
-              </div>
-              {/* Fin resto de uno noticia */}
-              <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
-                <Link
-                  href={'/noticia'}
-                  className='hover:scale-105 duration-500 cursor-pointer object-cover'
                 >
-                  <img
-                    src='https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
-                    className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-'
-                  />
-                  <p
-                    className='bg-[#275DAA] flex items-center leading-none text-sm font-medium text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
-              rounded-full uppercase '
-                  >
-                    Entertainment
-                  </p>
-                  <a className='text-lg font-bold sm:text-xl md:text-2xl'>
-                    Improving your day to the MAX
+                  Entertainment
+                </p>
+                <a className='text-lg font-bold sm:text-xl md:text-2xl'>
+                  Improving your day to the MAX
+                </a>
+                <p className='text-sm text-black'>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam,
+                </p>
+                <div className='pt-2 pr-0 pb-0 pl-0'>
+                  <a className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-0 underline'>
+                    Jack Sparrow
                   </a>
-                  <p className='text-sm text-black'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam,
+                  <p className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-1'>
+                    · 23rd, March 2021 ·
                   </p>
-                  <div className='pt-2 pr-0 pb-0 pl-0'>
-                    <a className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-0 underline'>
-                      Jack Sparrow
-                    </a>
-                    <p className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-1'>
-                      · 23rd, March 2021 ·
-                    </p>
-                    <p className='inline text-xs font-medium text-gray-300 mt-0 mr-1 mb-0 ml-1'>
-                      1hr 20min. read
-                    </p>
-                  </div>
-                </Link>
-              </div>
-              <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
-                <Link
-                  href={'/noticia'}
-                  className='hover:scale-105 duration-500 cursor-pointer object-cover'
-                >
-                  <img
-                    src='https://images.unsplash.com/photo-1626197031507-c17099753214?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzR8fHxlbnwwfHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
-                    className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-'
-                  />
-                  <p
-                    className='bg-[#275DAA] flex items-center leading-none text-sm font-medium text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
-              rounded-full uppercase'
-                  >
-                    Entertainment
+                  <p className='inline text-xs font-medium text-gray-300 mt-0 mr-1 mb-0 ml-1'>
+                    1hr 20min. read
                   </p>
-                  <a className='text-lg font-bold sm:text-xl md:text-2xl'>
-                    Improving your day to the MAX
-                  </a>
-                  <p className='text-sm text-black'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam,
-                  </p>
-                  <div className='pt-2 pr-0 pb-0 pl-0'>
-                    <a className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-0 underline'>
-                      Jack Sparrow
-                    </a>
-                    <p className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-1'>
-                      · 23rd, March 2021 ·
-                    </p>
-                    <p className='inline text-xs font-medium text-gray-300 mt-0 mr-1 mb-0 ml-1'>
-                      1hr 20min. read
-                    </p>
-                  </div>
-                </Link>
-              </div>
-              <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
-                <Link
-                  href={'/noticia'}
-                  className='hover:scale-105 duration-500 cursor-pointer object-cover'
-                >
-                  <img
-                    src='https://images.unsplash.com/photo-1626197031507-c17099753214?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzR8fHxlbnwwfHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
-                    className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-'
-                  />
-                  <p
-                    className='bg-[#275DAA] flex items-center leading-none text-sm font-medium text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
-              rounded-full uppercase'
-                  >
-                    Entertainment
-                  </p>
-                  <a className='text-lg font-bold sm:text-xl md:text-2xl'>
-                    Improving your day to the MAX
-                  </a>
-                  <p className='text-sm text-black'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam,
-                  </p>
-                  <div className='pt-2 pr-0 pb-0 pl-0'>
-                    <a className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-0 underline'>
-                      Jack Sparrow
-                    </a>
-                    <p className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-1'>
-                      · 23rd, March 2021 ·
-                    </p>
-                    <p className='inline text-xs font-medium text-gray-300 mt-0 mr-1 mb-0 ml-1'>
-                      1hr 20min. read
-                    </p>
-                  </div>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </div>
-            {/* Fin resto de noticias */}
+          </div>
+          <div className='md:col-start-4 '>
+            <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
+              <Link href={'/noticia'} className='hover:scale-95'>
+                <img
+                  src='https://images.unsplash.com/photo-1626318305863-bb23d0297c0b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
+                  className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-'
+                />
+                <p
+                  className='bg-[#275DAA] flex items-center leading-none text-sm font-medium text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
+              rounded-full uppercase '
+                >
+                  Entertainment
+                </p>
+                <a className='text-lg font-bold sm:text-xl md:text-2xl'>
+                  Improving your day to the MAX
+                </a>
+                <p className='text-sm text-black'>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam,
+                </p>
+                <div className='pt-2 pr-0 pb-0 pl-0'>
+                  <a className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-0 underline'>
+                    Jack Sparrow
+                  </a>
+                  <p className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-1'>
+                    · 23rd, March 2021 ·
+                  </p>
+                  <p className='inline text-xs font-medium text-gray-300 mt-0 mr-1 mb-0 ml-1'>
+                    1hr 20min. read
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
+          <div className='md:col-start-3 md:row-start-2 '>
+            <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
+              <Link href={'/noticia'} className='hover:scale-95'>
+                <img
+                  src='https://images.unsplash.com/photo-1626318305863-bb23d0297c0b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
+                  className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-'
+                />
+                <p
+                  className='bg-[#275DAA] flex items-center leading-none text-sm font-medium text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
+              rounded-full uppercase '
+                >
+                  Entertainment
+                </p>
+                <a className='text-lg font-bold sm:text-xl md:text-2xl'>
+                  Improving your day to the MAX
+                </a>
+                <p className='text-sm text-black'>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam,
+                </p>
+                <div className='pt-2 pr-0 pb-0 pl-0'>
+                  <a className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-0 underline'>
+                    Jack Sparrow
+                  </a>
+                  <p className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-1'>
+                    · 23rd, March 2021 ·
+                  </p>
+                  <p className='inline text-xs font-medium text-gray-300 mt-0 mr-1 mb-0 ml-1'>
+                    1hr 20min. read
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
+          <div className='md:col-start-4 md:row-start-2 '>
+            <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
+              <Link href={'/noticia'} className='hover:scale-95'>
+                <img
+                  src='https://images.unsplash.com/photo-1626318305863-bb23d0297c0b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
+                  className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-'
+                />
+                <p
+                  className='bg-[#275DAA] flex items-center leading-none text-sm font-medium text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
+              rounded-full uppercase '
+                >
+                  Entertainment
+                </p>
+                <a className='text-lg font-bold sm:text-xl md:text-2xl'>
+                  Improving your day to the MAX
+                </a>
+                <p className='text-sm text-black'>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam,
+                </p>
+                <div className='pt-2 pr-0 pb-0 pl-0'>
+                  <a className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-0 underline'>
+                    Jack Sparrow
+                  </a>
+                  <p className='inline text-xs font-medium mt-0 mr-1 mb-0 ml-1'>
+                    · 23rd, March 2021 ·
+                  </p>
+                  <p className='inline text-xs font-medium text-gray-300 mt-0 mr-1 mb-0 ml-1'>
+                    1hr 20min. read
+                  </p>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
