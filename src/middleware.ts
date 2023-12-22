@@ -8,7 +8,7 @@ export default withAuth({
   },
   callbacks: {
     authorized: ({ req, token }: { req: any; token: any }) => {
-      const rol = token?.user?.rol
+      const rol = token.user.role
       const path = req.nextUrl.pathname
 
       if (path.includes('/api/public')) return true
@@ -25,7 +25,6 @@ export default withAuth({
         return true
       } else {
         let salir = true
-        if (path === '/admin/dashboard') return true
         childOptions.forEach((child) => {
           if (child.path === path) {
             if (!child.rol.includes(rol)) {
