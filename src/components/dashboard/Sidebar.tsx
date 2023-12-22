@@ -1,4 +1,4 @@
-import { childOptions, options } from '@/constants/routes'
+import { childOptions, options } from '@/constants/routes_admin'
 import { Accordion, AccordionItem, Button } from '@nextui-org/react'
 import Link from 'next/link'
 import { FaHome } from 'react-icons/fa'
@@ -19,7 +19,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children, isSidebarOpen }) => {
         lg:w-72 `}
         aria-label='Sidebar'
       >
-        <div className='px-2 pb-10'>
+        <div className='px-2  mt-5'>
           <Link href='/admin/dashboard'>
             <Button
               variant='shadow'
@@ -40,7 +40,6 @@ const Sidebar: React.FC<SidebarProps> = ({ children, isSidebarOpen }) => {
               aria-label={option.name}
               title={
                 <span className='text-sm flex align-middle content-center text-primary'>
-                  <option.icon className='text-lg' />{' '}
                   <span className='ml-2'>{option.name}</span>
                 </span>
               }

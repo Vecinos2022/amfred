@@ -14,17 +14,23 @@ interface childRoute {
 
 export const options: SidebarOption[] = [
   {
-    name: 'Dashboard',
-    id: 'dashboard'
+    name: 'Noticias',
+    id: 'noticias'
   }
 ]
 
 export const childOptions: childRoute[] = [
-  // Subsecciones de nosotros
+  // Subsecciones de noticias
   {
-    name: 'DashBoard',
-    path: '/admin/dashboard',
+    name: 'Agregar',
+    path: '/admin/agregar_noticia',
     rol: [Roles.ADMIN],
-    id: 'dashboard'
+    id: 'noticias'
+  },
+  {
+    name: 'Todas las noticias',
+    path: '/admin/todas_noticias',
+    rol: [Roles.ADMIN],
+    id: 'noticias'
   }
 ]
