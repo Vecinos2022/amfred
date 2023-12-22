@@ -4,12 +4,6 @@ const TodasNoticias = () => {
   return (
     <>
       <section className='p-10'>
-        <Link
-          href={'/noticias'}
-          className='font-bold hover:text-[#275DAA] text-sm md:text-lg'
-        >
-          Regresar
-        </Link>
         <div className='flex flex-row justify-between py-10'>
           <h1 className='text-xl md:text-4xl font-black'>Todas las Noticias</h1>
           <button>Filtrar por</button>

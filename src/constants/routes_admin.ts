@@ -23,7 +23,7 @@ export const childOptions: childRoute[] = [
   // Subsecciones de nosotros
   {
     name: 'DashBoard',
-    path: '/admin',
+    path: '/admin/dashboard',
     rol: [Roles.ADMIN],
     id: 'dashboard'
   }

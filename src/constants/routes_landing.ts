@@ -57,11 +57,6 @@ export const childOptions: childRoute[] = [
   },
   //Subsecciones networking
   {
-    name: 'Últimas Noticias',
-    path: '/noticias',
-    id: 'networking'
-  },
-  {
     name: 'Todas las Noticias',
     path: '/todas_noticias',
     id: 'networking'

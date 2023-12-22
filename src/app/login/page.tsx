@@ -47,7 +47,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (session.status === 'authenticated') {
-      router.push('/admin/dashboard')
+      router.push('/')
       setUser(session.data?.user)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

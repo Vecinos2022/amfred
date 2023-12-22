@@ -48,10 +48,10 @@ const Noticia = () => {
         <div className='mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8'>
           <div className='pb-10'>
             <Link
-              href={'/noticias'}
-              className='text-xl font-black hover:text-[#275DAA]'
+              href={'/todas_noticias'}
+              className='text-xl font-black hover:text-[rgb(39,93,170)]'
             >
-              Noticias recientes
+              Todas las noticias
             </Link>
           </div>
           <div className='max-w-3xl'>
