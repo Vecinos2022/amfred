@@ -8,7 +8,7 @@ export default withAuth({
   },
   callbacks: {
     authorized: ({ req, token }: { req: any; token: any }) => {
-      const rol = token.user.role
+      const rol = token?.user.role
       const path = req.nextUrl.pathname
 
       if (path.includes('/api/public')) return true
