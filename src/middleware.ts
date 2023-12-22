@@ -26,6 +26,7 @@ export default withAuth({
         return true
       } else {
         let salir = true
+        if (path === '/admin/dashboard') return true
         childOptions.forEach((child) => {
           if (child.path === path) {
             if (!child.rol.includes(rol)) {
