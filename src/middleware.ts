@@ -11,8 +11,7 @@ export default withAuth({
       const rol = token?.user?.rol
       const path = req.nextUrl.pathname
 
-      if (path.includes('/api/public') || path === '/admin/dashboard')
-        return true
+      if (path.includes('/api/public')) return true
 
       const roles = Object.values(Roles)
 
