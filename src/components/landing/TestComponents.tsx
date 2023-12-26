@@ -38,7 +38,7 @@ const TestComponents = () => {
 
   const onSubmit: SubmitHandler<NoticiaFormInputs> = (data) => {
     noticiaActive ? editNoticia(data, noticiaActive._id) : saveNewNoticia(data)
-    router.back()
+    /* router.back() */
   }
   return (
     <>
