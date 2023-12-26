@@ -57,17 +57,9 @@ const NavbarLanding = () => {
     <>
       <ClockNavbar />
 
-      <Navbar
-        maxWidth='full'
-        isBordered
-        isMenuOpen={isMenuOpen}
-        onMenuOpenChange={setIsMenuOpen}
-        className='flex'
-      >
+      <Navbar maxWidth='full' isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className='flex py-2'>
         <NavbarContent className='sm:hidden' justify='start'>
-          <NavbarMenuToggle
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          />
+          <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} />
         </NavbarContent>
 
         <NavbarContent className='sm:hidden pr-3' justify='center'>
@@ -78,10 +70,7 @@ const NavbarLanding = () => {
           </NavbarBrand>
         </NavbarContent>
         {/* Logo full page start */}
-        <NavbarContent
-          className='hidden sm:inline-flex sm:w-20 gap-4'
-          justify='start'
-        >
+        <NavbarContent className='hidden sm:inline-flex sm:w-20 gap-4' justify='start'>
           <NavbarBrand>
             {/* hay que cambiar este href */}
             <Link href={'/'}>
@@ -91,20 +80,16 @@ const NavbarLanding = () => {
         </NavbarContent>
 
         {/* Menu y Button login at end */}
-        <NavbarContent justify='end' className='hidden sm:flex sm:w-10  w-35'>
+        <NavbarContent justify='end' className='hidden sm:flex sm:w-10 w-35'>
           {options.map((option, index) => (
             <NavbarMenuItem key={index}>
-              <div
-                onMouseEnter={() => setDropdownActive(index)}
-                onMouseLeave={() => setDropdownActive(-1)}
-                onWheel={() => setDropdownActive(-1)}
-              >
+              <div onMouseEnter={() => setDropdownActive(index)} onMouseLeave={() => setDropdownActive(-1)} onWheel={() => setDropdownActive(-1)}>
                 <Dropdown isOpen={dropdownActive == index} key={option.id}>
                   <NavbarItem>
                     <DropdownTrigger>
                       <Button
                         disableRipple
-                        className='p-0 bg-transparent data-[hover=true]:bg-transparent text-xl text-[#275DAA]'
+                        className='p-0 bg-transparent data-[hover=true]:bg-transparent text-md text-[#275DAA]'
                         radius='sm'
                         variant='light'
                       >
@@ -112,31 +97,26 @@ const NavbarLanding = () => {
                       </Button>
                     </DropdownTrigger>
                   </NavbarItem>
-                  <div
-                    onMouseEnter={() => setDropdownActive(index)}
-                    onMouseLeave={() => setDropdownActive(-1)}
-                    onWheel={() => setDropdownActive(-1)}
-                  >
-                    <DropdownMenu
-                      aria-label='ACME '
-                      className='w-[340px]'
-                      itemClasses={{
-                        base: 'gap-4'
-                      }}
-                    >
-                      {childOptions
-                        .filter((childOption) => childOption.id === option.id)
-                        .map((route, index) => (
-                          <DropdownItem key={index}>
-                            <Link
-                              href={route.path}
-                              className='text-lg text-[#275DAA]'
-                            >
-                              {route.name}
-                            </Link>
-                          </DropdownItem>
-                        ))}
-                    </DropdownMenu>
+                  <div onMouseEnter={() => setDropdownActive(index)} onMouseLeave={() => setDropdownActive(-1)} onWheel={() => setDropdownActive(-1)}>
+                    {childOptions.some((childOption) => childOption.id === option.id) && (
+                      <DropdownMenu
+                        aria-label='ACME'
+                        className='w-[340px]'
+                        itemClasses={{
+                          base: 'gap-0'
+                        }}
+                      >
+                        {childOptions
+                          .filter((childOption) => childOption.id === option.id)
+                          .map((route, index) => (
+                            <DropdownItem key={index}>
+                              <Link href={route.path} className='text-md text-[#275DAA]'>
+                                {route.name}
+                              </Link>
+                            </DropdownItem>
+                          ))}
+                      </DropdownMenu>
+                    )}
                   </div>
                 </Dropdown>
               </div>
@@ -151,32 +131,17 @@ const NavbarLanding = () => {
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu variant='shadow' aria-label='Static Actions'>
-                  <DropdownItem
-                    className='text-black'
-                    key='new'
-                    showDivider
-                    onClick={() => router.push('/admin/usuarios')}
-                  >
+                  <DropdownItem className='text-black' key='new' showDivider onClick={() => router.push('/admin/usuarios')}>
                     Usuarios
                   </DropdownItem>
 
-                  <DropdownItem
-                    key='delete'
-                    className='text-danger'
-                    color='danger'
-                    onClick={() => handleLogout()}
-                  >
+                  <DropdownItem key='delete' className='text-danger' color='danger' onClick={() => handleLogout()}>
                     Cerrar sesión
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             ) : (
-              <Button
-                as={Link}
-                className='rounded bg-[#275DAA] text-[white]'
-                href='/login'
-                variant='flat'
-              >
+              <Button as={Link} className='rounded bg-[#275DAA] text-[white]' href='/login' variant='flat'>
                 {user ? user.name : 'Mi Cuenta'}
               </Button>
             )}
@@ -211,11 +176,7 @@ const NavbarLanding = () => {
                       .filter((childOption) => childOption.id === option.id)
                       .map((route, index) => (
                         <DropdownItem key={index}>
-                          <Link
-                            onClick={closeMenu}
-                            href={route.path}
-                            className='text-lg text-[#275DAA]'
-                          >
+                          <Link onClick={closeMenu} href={route.path} className='text-lg text-[#275DAA]'>
                             {route.name}
                           </Link>
                         </DropdownItem>
