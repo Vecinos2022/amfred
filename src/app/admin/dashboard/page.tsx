@@ -3,7 +3,7 @@ import TestComponents from '@/components/landing/TestComponents'
 const Home = () => {
   return (
     <>
-      <TestComponents />
+      <Dashboard />
     </>
   )
 }

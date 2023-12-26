@@ -37,9 +37,8 @@ export const createNoticiasSlice: StateCreator<NoticiasSlice> = (set, get) => ({
     noticia: NoticiaModel
   ): Promise<boolean | undefined> => {
     set({ isLoading: true })
-    console.log(noticia)
     try {
-      const { status, data } = await axiosInstance.post(`/noticias`, noticia)
+      const { status, data } = await axiosInstance.post(`noticias`, noticia)
 
       console.log(status, data)
 

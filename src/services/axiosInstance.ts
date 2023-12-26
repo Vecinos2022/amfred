@@ -1,8 +1,8 @@
 import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios'
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL_LOCAL,
-  timeout: 5000
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  timeout: 10000
 })
 
 const setToken = (config: InternalAxiosRequestConfig) => {
