@@ -1,9 +1,9 @@
-import FormNoticia from '@/components/admin/FormNoticia'
+import TodasNoticias from '@/components/admin/TodasNoticias'
 
 const Home = () => {
   return (
     <>
-      <FormNoticia />
+      <TodasNoticias />
     </>
   )
 }

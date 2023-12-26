@@ -1,5 +1,11 @@
 'use client'
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react'
+import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger
+} from '@nextui-org/react'
 import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -63,9 +69,11 @@ const NavbarDashboard: React.FC<NavbarDashboardProps> = ({ children }) => {
                       className='inline-flex items-center p-2 text-background rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
                     >
                       <span className='sr-only'>Open sidebar</span>
-                      <span className='text-foreground p-1'>{isSidebarOpen ? <IoClose /> : <TfiMenu />}</span>
+                      <span className='text-foreground p-1'>
+                        {isSidebarOpen ? <IoClose /> : <TfiMenu />}
+                      </span>
                     </button>
-                    <Link href='/admin/dashboard'>
+                    <Link href='/'>
                       <LogoMain />
                     </Link>
                   </div>
@@ -74,20 +82,13 @@ const NavbarDashboard: React.FC<NavbarDashboardProps> = ({ children }) => {
                       <Dropdown backdrop='blur'>
                         <DropdownTrigger>
                           <Button variant='solid' color='primary'>
-                            {user ? user.nombre : ''} <FaChevronDown />
+                            {session.data?.user?.name} <FaChevronDown />
                           </Button>
                         </DropdownTrigger>
-                        <DropdownMenu variant='shadow' aria-label='Static Actions'>
-                          <DropdownItem
-                            className='text-black'
-                            key='new'
-                            startContent={<FaUsers />}
-                            showDivider
-                            onClick={() => router.push('/admin/usuarios')}
-                          >
-                            Usuarios
-                          </DropdownItem>
-
+                        <DropdownMenu
+                          variant='shadow'
+                          aria-label='Static Actions'
+                        >
                           <DropdownItem
                             key='delete'
                             startContent={<IoLogOut />}
