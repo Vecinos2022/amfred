@@ -26,6 +26,7 @@ export interface NoticiaResponse {
   titulo: string
   descripcion: string
   imagen: string
+  estatus: boolean
   updatedAt: string
 }
 

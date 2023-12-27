@@ -34,8 +34,10 @@ export async function DELETE(
   try {
     await connectDB()
 
+    const noticia = await Noticia.findById(id)
+
     const data = {
-      estatus: false
+      estatus: !noticia.estatus
     }
 
     await Noticia.findByIdAndUpdate(id, data)

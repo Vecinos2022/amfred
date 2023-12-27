@@ -21,12 +21,7 @@ export const options: SidebarOption[] = [
 
 export const childOptions: childRoute[] = [
   // Subsecciones de noticias
-  {
-    name: 'Agregar',
-    path: '/admin/agregar_noticia',
-    rol: [Roles.ADMIN],
-    id: 'noticias'
-  },
+
   {
     name: 'Todas las noticias',
     path: '/admin/todas_noticias',

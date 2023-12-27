@@ -1,3 +1,4 @@
+'use client'
 import { TableProps } from '@/types/TableProps'
 import {
   Button,
@@ -22,7 +23,13 @@ import { FaFileExcel, FaFilePdf, FaPlus, FaSearch } from 'react-icons/fa'
 import exportPDF from './exportPDF'
 import exportExcel from './exportExcel'
 
-const TableComponent: React.FC<TableProps> = ({ columns, rows, linkButton, showHeader = true, removeWrapper = false }) => {
+const TableComponent: React.FC<TableProps> = ({
+  columns,
+  rows,
+  linkButton,
+  showHeader = true,
+  removeWrapper = false
+}) => {
   const [page, setPage] = useState(1)
   const [rowsPerPage, setRowsPerPage] = useState(10)
   const [searchTerm, setSearchTerm] = useState('')
@@ -35,7 +42,11 @@ const TableComponent: React.FC<TableProps> = ({ columns, rows, linkButton, showH
     if (!searchTerm) return rows
 
     return rows.filter((row) =>
-      Object.values(row).some((value) => typeof value === 'string' && value.toLowerCase().includes(searchTerm.toLowerCase()))
+      Object.values(row).some(
+        (value) =>
+          typeof value === 'string' &&
+          value.toLowerCase().includes(searchTerm.toLowerCase())
+      )
     )
   }, [rows, searchTerm])
 
@@ -84,16 +95,31 @@ const TableComponent: React.FC<TableProps> = ({ columns, rows, linkButton, showH
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu>
-                  <DropdownItem className='text-foreground' color='success' onClick={() => exportExcel(columns, rows)} startContent={<FaFileExcel />}>
+                  <DropdownItem
+                    className='text-foreground'
+                    color='success'
+                    onClick={() => exportExcel(columns, rows)}
+                    startContent={<FaFileExcel />}
+                  >
                     Exportar Excel
                   </DropdownItem>
-                  <DropdownItem className='text-foreground' color='danger' onClick={() => exportPDF(columns, rows)} startContent={<FaFilePdf />}>
+                  <DropdownItem
+                    className='text-foreground'
+                    color='danger'
+                    onClick={() => exportPDF(columns, rows)}
+                    startContent={<FaFilePdf />}
+                  >
                     Exportar PDF
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
               {linkButton && (
-                <Button variant='solid' color='primary' onPress={() => router.push(linkButton)} startContent={<FaPlus size='20' />}>
+                <Button
+                  variant='solid'
+                  color='primary'
+                  onPress={() => router.push(linkButton)}
+                  startContent={<FaPlus size='20' />}
+                >
                   Agregar
                 </Button>
               )}
@@ -103,7 +129,9 @@ const TableComponent: React.FC<TableProps> = ({ columns, rows, linkButton, showH
               <select
                 className='px-2 py-1 border rounded focus:outline-none'
                 value={rowsPerPage}
-                onChange={(e) => handleRowsPerPageChange(Number(e.target.value))}
+                onChange={(e) =>
+                  handleRowsPerPageChange(Number(e.target.value))
+                }
               >
                 <option value={10}>10</option>
                 <option value={50}>50</option>
@@ -119,7 +147,15 @@ const TableComponent: React.FC<TableProps> = ({ columns, rows, linkButton, showH
       bottomContent={
         <div className='flex w-full justify-center my-5'>
           {rows.length > 0 && (
-            <Pagination isCompact showControls showShadow color='primary' page={page} total={pages} onChange={(page) => setPage(page)} />
+            <Pagination
+              isCompact
+              showControls
+              showShadow
+              color='primary'
+              page={page}
+              total={pages}
+              onChange={(page) => setPage(page)}
+            />
           )}
         </div>
       }
@@ -137,7 +173,11 @@ const TableComponent: React.FC<TableProps> = ({ columns, rows, linkButton, showH
       <TableBody emptyContent={'No hay información'} items={items}>
         {(item) => (
           <TableRow className='text-center' key={item.key}>
-            {(columnKey) => <TableCell className='text-center'>{getKeyValue(item, columnKey)}</TableCell>}
+            {(columnKey) => (
+              <TableCell className='text-center'>
+                {getKeyValue(item, columnKey)}
+              </TableCell>
+            )}
           </TableRow>
         )}
       </TableBody>

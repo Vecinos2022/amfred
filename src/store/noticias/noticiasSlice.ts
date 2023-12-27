@@ -14,10 +14,10 @@ export const createNoticiasSlice: StateCreator<NoticiasSlice> = (set, get) => ({
       isLoading: true
     })
     try {
-      const { data } = await axiosInstance.get('noticia')
+      const { data } = await axiosInstance.get('noticias')
 
       set({
-        noticias: data.data
+        noticias: data.message
       })
     } catch (error: any) {
       const err: AxiosError = error
@@ -115,11 +115,17 @@ export const createNoticiasSlice: StateCreator<NoticiasSlice> = (set, get) => ({
 
       if (status == 200) {
         toastAlert({
-          title: 'Noticia eliminado'
+          title: 'Estatus Actualizado'
         })
 
         set((state) => ({
-          noticias: state.noticias.filter((noticia) => noticia._id !== id)
+          noticias: state.noticias.map((noticia) => {
+            if (noticia._id == id) {
+              return { ...noticia, estatus: !noticia.estatus }
+            } else {
+              return noticia
+            }
+          })
         }))
 
         set({
