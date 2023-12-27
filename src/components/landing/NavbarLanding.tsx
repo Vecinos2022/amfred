@@ -50,8 +50,7 @@ const NavbarLanding = () => {
   }, [session])
 
   const handleLogout = () => {
-    signOut()
-    router.push('/login')
+    signOut({ callbackUrl: '/' })
   }
   return (
     <>

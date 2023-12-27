@@ -9,7 +9,7 @@ import { useAuthBoundStore } from '@/store/auth/authSharedSlice'
 import { BsEyeFill, BsEyeSlash } from 'react-icons/bs'
 
 import LoaderScreen from '@/components/shared/LoaderScreen'
-import { useSession } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import imagenAmfred from '../../assets/imgs/amfred_logo.png'
@@ -48,6 +48,7 @@ const LoginPage = () => {
   useEffect(() => {
     if (session.status === 'authenticated') {
       router.push('/admin/dashboard')
+      // signIn(undefined, { callbackUrl: '/admin/dashboard' })
       setUser(session.data?.user)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

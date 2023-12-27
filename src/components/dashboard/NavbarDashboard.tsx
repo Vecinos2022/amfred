@@ -42,8 +42,7 @@ const NavbarDashboard: React.FC<NavbarDashboardProps> = ({ children }) => {
   }
 
   const handleLogout = () => {
-    signOut()
-    router.push('/login')
+    signOut({ callbackUrl: '/login' })
   }
 
   useEffect(() => {
