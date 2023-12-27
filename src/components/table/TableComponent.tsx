@@ -76,8 +76,8 @@ const TableComponent: React.FC<TableProps> = ({
       topContent={
         showHeader &&
         (rows.length > 0 || linkButton) && (
-          <div className='flex items-center justify-between mb-5 px-1 pt-5'>
-            <div className='flex items-center gap-2'>
+          <div className='flex flex-col mb-5 px-1 pt-5'>
+            <div className='flex justify-between items-center gap-2'>
               <Input
                 isClearable
                 size='sm'
@@ -115,6 +115,7 @@ const TableComponent: React.FC<TableProps> = ({
               </Dropdown>
               {linkButton && (
                 <Button
+                  className='justify-self-end'
                   variant='solid'
                   color='primary'
                   onPress={() => router.push(linkButton)}
@@ -124,7 +125,7 @@ const TableComponent: React.FC<TableProps> = ({
                 </Button>
               )}
             </div>
-            <div className='flex items-center'>
+            <div className='flex items-center pt-5'>
               <span className='text-sm mr-2'>Mostrar:</span>
               <select
                 className='px-2 py-1 border rounded focus:outline-none'

@@ -98,50 +98,62 @@ const NavbarLanding = () => {
                 onMouseLeave={() => setDropdownActive(-1)}
                 onWheel={() => setDropdownActive(-1)}
               >
-                <Dropdown isOpen={dropdownActive == index} key={option.id}>
-                  <NavbarItem>
-                    <DropdownTrigger>
-                      <Button
-                        disableRipple
-                        className='p-0 bg-transparent data-[hover=true]:bg-transparent text-md text-[#275DAA]'
-                        radius='sm'
-                        variant='light'
-                      >
-                        {option.name}
-                      </Button>
-                    </DropdownTrigger>
-                  </NavbarItem>
-                  <div
-                    onMouseEnter={() => setDropdownActive(index)}
-                    onMouseLeave={() => setDropdownActive(-1)}
-                    onWheel={() => setDropdownActive(-1)}
+                {childOptions.some(
+                  (childOption) => childOption.id === option.id
+                ) ? (
+                  <Dropdown isOpen={dropdownActive == index} key={option.id}>
+                    <NavbarItem>
+                      <DropdownTrigger>
+                        <Button
+                          disableRipple
+                          className='p-0 bg-transparent data-[hover=true]:bg-transparent text-lg text-[#275DAA]'
+                          variant='light'
+                        >
+                          {option.name}
+                        </Button>
+                      </DropdownTrigger>
+                    </NavbarItem>
+                    <div
+                      onMouseEnter={() => setDropdownActive(index)}
+                      onMouseLeave={() => setDropdownActive(-1)}
+                      onWheel={() => setDropdownActive(-1)}
+                    >
+                      {childOptions.some(
+                        (childOption) => childOption.id === option.id
+                      ) && (
+                        <DropdownMenu
+                          aria-label='ACME'
+                          className='w-[340px]'
+                          itemClasses={{
+                            base: 'gap-0'
+                          }}
+                        >
+                          {childOptions
+                            .filter(
+                              (childOption) => childOption.id === option.id
+                            )
+                            .map((route, index) => (
+                              <DropdownItem key={index}>
+                                <Link
+                                  href={route.path}
+                                  className='text-md text-[#275DAA]'
+                                >
+                                  {route.name}
+                                </Link>
+                              </DropdownItem>
+                            ))}
+                        </DropdownMenu>
+                      )}
+                    </div>
+                  </Dropdown>
+                ) : (
+                  <Link
+                    className='p-0 bg-transparent data-[hover=true]:bg-transparent text-md text-[#275DAA]'
+                    href={`/${option.id}`}
                   >
-                    {childOptions.some(
-                      (childOption) => childOption.id === option.id
-                    ) && (
-                      <DropdownMenu
-                        aria-label='ACME'
-                        className='w-[340px]'
-                        itemClasses={{
-                          base: 'gap-0'
-                        }}
-                      >
-                        {childOptions
-                          .filter((childOption) => childOption.id === option.id)
-                          .map((route, index) => (
-                            <DropdownItem key={index}>
-                              <Link
-                                href={route.path}
-                                className='text-md text-[#275DAA]'
-                              >
-                                {route.name}
-                              </Link>
-                            </DropdownItem>
-                          ))}
-                      </DropdownMenu>
-                    )}
-                  </div>
-                </Dropdown>
+                    {option.name}
+                  </Link>
+                )}
               </div>
             </NavbarMenuItem>
           ))}
@@ -150,7 +162,7 @@ const NavbarLanding = () => {
               <Dropdown backdrop='blur'>
                 <DropdownTrigger>
                   <Button variant='solid' color='primary'>
-                    {session.data?.user?.name}
+                    {'Admin'}
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu variant='shadow' aria-label='Static Actions'>
@@ -180,7 +192,7 @@ const NavbarLanding = () => {
                 href='/login'
                 variant='flat'
               >
-                {user ? user.name : 'Mi Cuenta'}
+                {user ? 'Admin' : 'Mi Cuenta'}
               </Button>
             )}
           </NavbarItem>

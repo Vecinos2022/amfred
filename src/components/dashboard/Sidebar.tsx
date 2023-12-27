@@ -32,34 +32,19 @@ const Sidebar: React.FC<SidebarProps> = ({ children, isSidebarOpen }) => {
             </Button>
           </Link>
         </div>
-        <Accordion variant='splitted'>
+
+        <ul className='mt-6 space-y-1'>
           {options.map((option, index) => (
-            <AccordionItem
-              isCompact={false}
-              key={index}
-              aria-label={option.name}
-              title={
-                <span className='text-sm flex align-middle content-center text-primary'>
-                  <span className='ml-2'>{option.name}</span>
-                </span>
-              }
-            >
-              <div className='pb-3'>
-                {childOptions
-                  .filter((childOption) => childOption.id === option.id)
-                  .map((route, index) => (
-                    <Link
-                      key={index}
-                      href={route.path}
-                      className='flex text-sm items-center p-2 text-gray-700 font-light rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group'
-                    >
-                      <span className='ms-3'>- {route.name}</span>
-                    </Link>
-                  ))}
-              </div>
-            </AccordionItem>
+            <li key={index}>
+              <Link
+                href={option.path}
+                className='block rounded-lg px-4 py-2 text-md text-center font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+              >
+                {option.name}
+              </Link>
+            </li>
           ))}
-        </Accordion>
+        </ul>
       </aside>
 
       <div

@@ -73,10 +73,6 @@ const LoginPage = () => {
                 <h1 className='text-2xl mt-0  mb-8 font-bold sm:text-3xl'>
                   Iniciar Sesión
                 </h1>
-
-                <p className='mt-4 text-gray-500'>
-                  Sistema de control de asistencias
-                </p>
               </div>
               <form
                 onSubmit={handleSubmit(onSubmit)}

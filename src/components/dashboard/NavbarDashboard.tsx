@@ -81,7 +81,7 @@ const NavbarDashboard: React.FC<NavbarDashboardProps> = ({ children }) => {
                       <Dropdown backdrop='blur'>
                         <DropdownTrigger>
                           <Button variant='solid' color='primary'>
-                            {session.data?.user?.name} <FaChevronDown />
+                            {'Admin'} <FaChevronDown />
                           </Button>
                         </DropdownTrigger>
                         <DropdownMenu

@@ -3,6 +3,7 @@ import { Roles } from './roles'
 interface SidebarOption {
   name: string
   id: string
+  path: string
 }
 
 interface childRoute {
@@ -15,7 +16,8 @@ interface childRoute {
 export const options: SidebarOption[] = [
   {
     name: 'Noticias',
-    id: 'noticias'
+    id: 'noticias',
+    path: '/admin/todas_noticias'
   }
 ]
 
