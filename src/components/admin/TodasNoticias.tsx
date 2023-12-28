@@ -101,7 +101,7 @@ const TodasNoticias = () => {
                 <Tooltip content='Editar' color='foreground' closeDelay={20}>
                   <Button
                     onClick={() => handleEdit(noticia)}
-                    className='text-lg text-default-400 cursor-pointer active:opacity-50 active:border-0'
+                    className='text-lg bg-[#338DF3] text-white cursor-pointer active:opacity-50 active:border-0'
                   >
                     <FaEdit />
                   </Button>
@@ -112,6 +112,15 @@ const TodasNoticias = () => {
                   onValueChange={() => deleteNoticia(noticia._id)}
                   // onChange={(e) => alert(e.target.value)}
                 ></Switch>
+
+                <Tooltip content='Eliminar' color='foreground' closeDelay={20}>
+                  <Button
+                    onClick={() => handleEdit(noticia)}
+                    className='text-lg bg-red-700 text-white cursor-pointer active:opacity-50 active:border-0'
+                  >
+                    <FaTrash />
+                  </Button>
+                </Tooltip>
               </div>
             )
           }))
