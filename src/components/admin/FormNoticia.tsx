@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import { useNoticiasStore } from '@/store/noticias/noticiasSlice'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { NoticiaFormInputs } from '@/types/Noticia'
+import AdminCard from '../shared/AdminCard'
 
 const schema = yup.object().shape({
   _id: yup.string().nullable().notRequired(),
@@ -41,7 +42,7 @@ const FormNoticia = () => {
     router.back()
   }
   return (
-    <>
+    <AdminCard backBtn>
       <form className='px-5 pb-10' onSubmit={handleSubmit(onSubmit)}>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
           <Input
@@ -79,7 +80,7 @@ const FormNoticia = () => {
           Guardar
         </Button>
       </form>
-    </>
+    </AdminCard>
   )
 }
 
