@@ -22,7 +22,7 @@ import { useRouter } from 'next/navigation'
 
 const TodasNoticias = () => {
   const route = useRouter()
-  const { getNoticias, setActive, deleteNoticia } = useNoticiasStore()
+  const { getNoticias, setActive, changeStatusNoticia } = useNoticiasStore()
 
   const [rowsActive, setRowsActive] = useState<
     { index: number; key: string }[]
@@ -68,15 +68,9 @@ const TodasNoticias = () => {
                   </Button>
                 </Tooltip>
 
-                <Switch
-                  isSelected={noticia.estatus}
-                  onValueChange={() => deleteNoticia(noticia._id)}
-                  // onChange={(e) => alert(e.target.value)}
-                ></Switch>
-
                 <Tooltip content='Eliminar' color='foreground' closeDelay={20}>
                   <Button
-                    onClick={() => handleEdit(noticia)}
+                    onClick={() => changeStatusNoticia(noticia._id)}
                     className='text-lg bg-red-700 text-white cursor-pointer active:opacity-50 active:border-0'
                   >
                     <FaTrash />
@@ -95,34 +89,7 @@ const TodasNoticias = () => {
             key: noticia._id,
             index: index + 1,
             titulo: noticia.titulo,
-            fecha: dayjs(noticia.updatedAt).format('DD/MM/YYYY'),
-            acciones: (
-              <div className='relative flex items-center gap-2 justify-center'>
-                <Tooltip content='Editar' color='foreground' closeDelay={20}>
-                  <Button
-                    onClick={() => handleEdit(noticia)}
-                    className='text-lg bg-[#338DF3] text-white cursor-pointer active:opacity-50 active:border-0'
-                  >
-                    <FaEdit />
-                  </Button>
-                </Tooltip>
-
-                <Switch
-                  isSelected={noticia.estatus}
-                  onValueChange={() => deleteNoticia(noticia._id)}
-                  // onChange={(e) => alert(e.target.value)}
-                ></Switch>
-
-                <Tooltip content='Eliminar' color='foreground' closeDelay={20}>
-                  <Button
-                    onClick={() => handleEdit(noticia)}
-                    className='text-lg bg-red-700 text-white cursor-pointer active:opacity-50 active:border-0'
-                  >
-                    <FaTrash />
-                  </Button>
-                </Tooltip>
-              </div>
-            )
+            fecha: dayjs(noticia.updatedAt).format('DD/MM/YYYY')
           }))
       )
     } else {
@@ -154,7 +121,7 @@ const TodasNoticias = () => {
   let tabs = [
     {
       id: 'activas',
-      label: 'Noticias Activas',
+      label: 'Activas',
       content: (
         <TableComponent
           columns={columns}
@@ -166,10 +133,10 @@ const TodasNoticias = () => {
     },
     {
       id: 'inactivas',
-      label: 'Noticias Inactivas',
+      label: 'Eliminadas',
       content: (
         <TableComponent
-          columns={columns}
+          columns={columns.slice(0, -1)}
           rows={rowsInactive}
           showHeader={true}
           linkButton={'/admin/agregar_noticia'}

@@ -9,12 +9,17 @@ import { useNoticiasStore } from '@/store/noticias/noticiasSlice'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { NoticiaFormInputs } from '@/types/Noticia'
 import AdminCard from '../shared/AdminCard'
+import { useState } from 'react'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
 
 const schema = yup.object().shape({
   _id: yup.string().nullable().notRequired(),
   titulo: yup.string().required('El nombre es obligatorio'),
-  descripcion: yup.string().required('El correo es obligatorio'),
-  imagen: yup.string().required('La contraseña es obligatoria')
+  descripcion_corta: yup
+    .string()
+    .required('La descripción corta es obligatoria'),
+  imagen: yup.mixed().required('La imagen es obligatoria')
 })
 
 const FormNoticia = () => {
@@ -31,6 +36,8 @@ const FormNoticia = () => {
     noticiaActive: state.noticiaActive
   }))
 
+  const [content, setContent] = useState('')
+
   const {
     register,
     handleSubmit,
@@ -38,8 +45,13 @@ const FormNoticia = () => {
   } = useForm<NoticiaFormInputs>({})
 
   const onSubmit: SubmitHandler<NoticiaFormInputs> = (data) => {
+    data.descripcion = content
     noticiaActive ? editNoticia(data, noticiaActive._id) : saveNewNoticia(data)
     router.back()
+  }
+
+  const handleContentChange = (value: string) => {
+    setContent(value)
   }
   return (
     <AdminCard backBtn>
@@ -58,17 +70,31 @@ const FormNoticia = () => {
         </div>
         <Input
           type='text'
-          {...register('descripcion')}
-          label='Descripción'
+          {...register('descripcion_corta')}
+          label='Descripción Corta'
           className='m-2'
-          defaultValue={noticiaActive?.descripcion}
+          defaultValue={noticiaActive?.descripcion_corta}
         />
-        <Input
+
+        {/* <Input
           type='text'
           {...register('imagen')}
           label='pon ruta plz'
           className='m-2'
           defaultValue={noticiaActive?.imagen}
+        /> */}
+        <ReactQuill
+          className='h-[300px] pb-10'
+          theme='snow'
+          value={content}
+          onChange={handleContentChange}
+        />
+
+        <input
+          type='file'
+          className='form-control'
+          {...register('imagen', {})}
+          placeholder='Imagen'
         />
         <Button
           type='submit'

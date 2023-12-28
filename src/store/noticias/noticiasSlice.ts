@@ -37,8 +37,17 @@ export const createNoticiasSlice: StateCreator<NoticiasSlice> = (set, get) => ({
     noticia: NoticiaModel
   ): Promise<boolean | undefined> => {
     set({ isLoading: true })
+
     try {
-      const { status, data } = await axiosInstance.post(`noticias`, noticia)
+      const formData = new FormData()
+      formData.append('titulo', noticia.titulo)
+      formData.append('descripcion_corta', noticia.descripcion_corta)
+      formData.append('descripcion', noticia.descripcion)
+      formData.append('imagen', noticia.imagen)
+
+      const { status, data } = await axiosInstance.post(`noticias`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      })
 
       console.log(status, data)
 
@@ -107,7 +116,7 @@ export const createNoticiasSlice: StateCreator<NoticiasSlice> = (set, get) => ({
     }
   },
 
-  deleteNoticia: async (id: string): Promise<boolean | undefined> => {
+  changeStatusNoticia: async (id: string): Promise<boolean | undefined> => {
     set({ isLoading: true })
 
     try {

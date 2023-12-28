@@ -2,6 +2,7 @@ export interface NoticiaModel {
   _id?: string | null | undefined
   titulo: string
   descripcion: string
+  descripcion_corta: string
   imagen: string
 }
 
@@ -11,7 +12,7 @@ export interface NoticiasSlice {
   noticias: NoticiaResponse[]
   noticiaActive?: NoticiaResponse | null
   getNoticias: () => Promise<void>
-  deleteNoticia: (id: string) => Promise<boolean | undefined>
+  changeStatusNoticia: (id: string) => Promise<boolean | undefined>
   saveNewNoticia: (user: NoticiaModel) => Promise<boolean | undefined>
   editNoticia: (
     user: NoticiaFormInputs,
@@ -25,6 +26,7 @@ export interface NoticiaResponse {
   _id: string
   titulo: string
   descripcion: string
+  descripcion_corta: string
   imagen: string
   estatus: boolean
   updatedAt: string
@@ -34,5 +36,6 @@ export interface NoticiaFormInputs {
   _id?: string
   titulo: string
   descripcion: string
+  descripcion_corta: string
   imagen: string
 }

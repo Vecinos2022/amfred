@@ -10,6 +10,10 @@ const NoticiaSchema = new Schema(
       type: String,
       require: true
     },
+    descripcion_corta: {
+      type: String,
+      require: true
+    },
     imagen: {
       type: String,
       require: true

@@ -21,7 +21,7 @@ export async function PUT(
   } catch (error) {
     console.error(error)
 
-    return NextResponse.json({ msg: 'Error al actualizado' })
+    return NextResponse.json({ msg: 'Error al actualizar Noticia' })
   }
 }
 
@@ -43,11 +43,11 @@ export async function DELETE(
     await Noticia.findByIdAndUpdate(id, data)
 
     return NextResponse.json({
-      msg: 'Noticia eliminado correctamente'
+      msg: 'Estatus de Noticia actualizado correctamente'
     })
   } catch (error) {
     console.error(error)
 
-    return NextResponse.json({ msg: 'Error al eliminar' })
+    return NextResponse.json({ msg: 'Error al actualizar Estatus' })
   }
 }

@@ -38,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children, isSidebarOpen }) => {
             <li key={index}>
               <Link
                 href={option.path}
-                className='block rounded-lg px-4 py-2 text-md text-center font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                className='block rounded-lg px-4 py-2 text-md font-bold  text-gray-700 hover:bg-gray-100 hover:text-gray-500'
               >
                 {option.name}
               </Link>
