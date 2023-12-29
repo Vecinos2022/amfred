@@ -43,7 +43,7 @@ export const createNoticiasSlice: StateCreator<NoticiasSlice> = (set, get) => ({
       formData.append('titulo', noticia.titulo)
       formData.append('descripcion_corta', noticia.descripcion_corta)
       formData.append('descripcion', noticia.descripcion)
-      formData.append('imagen', noticia.imagen)
+      formData.append('imagen', noticia.imagen[0])
 
       const { status, data } = await axiosInstance.post(`noticias`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
@@ -83,9 +83,17 @@ export const createNoticiasSlice: StateCreator<NoticiasSlice> = (set, get) => ({
     set({ isLoading: true })
 
     try {
+      const formData = new FormData()
+      formData.append('titulo', noticia.titulo)
+      formData.append('descripcion_corta', noticia.descripcion_corta)
+      formData.append('descripcion', noticia.descripcion)
+      noticia.imagen.length && formData.append('imagen', noticia.imagen[0])
       const { status, data } = await axiosInstance.put(
         `noticias/${id}`,
-        noticia
+        formData,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        }
       )
 
       if (status == 200) {

@@ -2,7 +2,7 @@
 
 import * as yup from 'yup'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { Button, Input } from '@nextui-org/react'
+import { Button, Image, Input } from '@nextui-org/react'
 
 import { useRouter } from 'next/navigation'
 import { useNoticiasStore } from '@/store/noticias/noticiasSlice'
@@ -56,18 +56,17 @@ const FormNoticia = () => {
   return (
     <AdminCard backBtn>
       <form className='px-5 pb-10' onSubmit={handleSubmit(onSubmit)}>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
-          <Input
-            isRequired
-            isInvalid={errors.titulo ? true : false}
-            errorMessage={errors.titulo ? errors.titulo.message : ''}
-            type='text'
-            {...register('titulo')}
-            label='Nombre del usuario'
-            defaultValue={noticiaActive?.titulo}
-            className='m-2'
-          />
-        </div>
+        <Input
+          isRequired
+          isInvalid={errors.titulo ? true : false}
+          errorMessage={errors.titulo ? errors.titulo.message : ''}
+          type='text'
+          {...register('titulo')}
+          label='Nombre del usuario'
+          defaultValue={noticiaActive?.titulo}
+          className='m-2'
+        />
+
         <Input
           type='text'
           {...register('descripcion_corta')}
@@ -84,7 +83,7 @@ const FormNoticia = () => {
           defaultValue={noticiaActive?.imagen}
         /> */}
         <ReactQuill
-          className='h-[300px] pb-10'
+          className='h-[300px] py-10'
           theme='snow'
           value={content}
           onChange={handleContentChange}
@@ -92,9 +91,14 @@ const FormNoticia = () => {
 
         <input
           type='file'
-          className='form-control'
-          {...register('imagen', {})}
+          className='form-control py-10'
+          {...register('imagen')}
           placeholder='Imagen'
+        />
+        <Image
+          src={noticiaActive?.imagen}
+          width={300}
+          fallbackSrc='https://via.placeholder.com/300x300'
         />
         <Button
           type='submit'

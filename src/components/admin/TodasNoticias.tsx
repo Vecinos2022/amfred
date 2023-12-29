@@ -22,7 +22,8 @@ import { useRouter } from 'next/navigation'
 
 const TodasNoticias = () => {
   const route = useRouter()
-  const { getNoticias, setActive, changeStatusNoticia } = useNoticiasStore()
+  const { getNoticias, clearActive, setActive, changeStatusNoticia } =
+    useNoticiasStore()
 
   const [rowsActive, setRowsActive] = useState<
     { index: number; key: string }[]
@@ -33,7 +34,7 @@ const TodasNoticias = () => {
 
   useEffect(() => {
     getNoticias()
-    // setActive()
+    clearActive()
   }, [])
 
   const { noticias } = useNoticiasStore((state) => ({
