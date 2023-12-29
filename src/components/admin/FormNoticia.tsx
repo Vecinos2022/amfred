@@ -98,7 +98,7 @@ const FormNoticia = () => {
         <Image
           src={noticiaActive?.imagen}
           width={300}
-          fallbackSrc='https://via.placeholder.com/300x300'
+          alt={noticiaActive?.imagen}
         />
         <Button
           type='submit'
