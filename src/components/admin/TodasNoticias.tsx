@@ -12,7 +12,6 @@ import {
   CardHeader
 } from '@nextui-org/react'
 import { useNoticiasStore } from '@/store/noticias/noticiasSlice'
-import AdminCard from '../shared/AdminCard'
 
 import { FaEdit, FaTrash } from 'react-icons/fa'
 
