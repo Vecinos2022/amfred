@@ -2,12 +2,15 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/es'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
 dayjs.locale('es')
 dayjs.tz.setDefault('America/Mexico_City')
+
+dayjs.extend(localizedFormat)
 
 type TipoFecha = 'numero' | 'minuscula' | 'mayuscula'
 
