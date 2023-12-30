@@ -1,0 +1,28 @@
+.quill h1 {
+  font-size: xx-large;
+}
+
+.quill h2 {
+  font-size: x-large;
+}
+
+.quill h3 {
+  font-size: larger;
+}
+
+.quill p {
+  font-size: large;
+}
+
+.quill ul,
+ol {
+  padding-left: 2.5em;
+}
+
+.quill ul > li {
+  list-style: circle;
+}
+
+.quill ol > li {
+  list-style: decimal;
+}
