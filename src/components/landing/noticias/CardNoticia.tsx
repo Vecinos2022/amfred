@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { NoticiaResponse } from '@/types/Noticia'
 import { Image } from '@nextui-org/react'
+import dayjs from '@/services/daysJsConfig'
 
 const CardNoticia: React.FC<NoticiaResponse> = ({
   titulo,
@@ -23,7 +24,7 @@ const CardNoticia: React.FC<NoticiaResponse> = ({
             className='bg-[#275DAA] flex items-center leading-none text-sm font-medium text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
     rounded-full uppercase '
           >
-            {updatedAt}
+            {dayjs(updatedAt).format('DD/MM/YYYY')}
           </p>
           <a className='text-lg font-bold sm:text-xl md:text-2xl'>{titulo}</a>
           <p className='text-sm text-black '>{descripcion_corta}</p>
