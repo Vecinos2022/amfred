@@ -101,8 +101,11 @@ const NoticiasRecientes = () => {
                 </Link>
               </article>
             ) : (
-              <div className='col-span-4 flex items-start sm:col-span-2 lg:col-span-1 cursor-pointer'>
-                <CardNoticia key={index} noticia={noticia} />
+              <div
+                key={index}
+                className='col-span-4 flex items-start sm:col-span-2 lg:col-span-1 cursor-pointer'
+              >
+                <CardNoticia noticia={noticia} />
               </div>
             )
           )}
