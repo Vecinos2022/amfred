@@ -19,9 +19,11 @@ const CardNoticia: React.FC<NoticiaProps> = ({ noticia }) => {
   }
   return (
     <Link href='noticia' onClick={() => handleViewNoticia(noticia)}>
-      <article className='col-span-4 flex items-center sm:col-span-2 lg:col-span-1 cursor-pointer'>
-        <div className='flex flex-col items-start hover:scale-95'>
+      <article>
+        <div className='flex flex-col items-start '>
           <Image
+            isZoomed
+            height={300}
             alt={noticia.titulo}
             src={noticia.imagen}
             className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56'
@@ -32,10 +34,9 @@ const CardNoticia: React.FC<NoticiaProps> = ({ noticia }) => {
           >
             {dayjs(noticia.updatedAt).format('LL')}
           </p>
-          <a className='text-lg font-bold sm:text-xl md:text-2xl'>
+          <p className='text-lg font-bold sm:text-xl md:text-2xl'>
             {noticia.titulo}
-          </a>
-          <p className='text-sm text-black '>{noticia.descripcion_corta}</p>
+          </p>
         </div>
       </article>
     </Link>
