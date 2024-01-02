@@ -42,12 +42,6 @@ const NavbarLanding = () => {
   const closeMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
-  useEffect(() => {
-    if (session.status === 'authenticated') {
-      setUser(session.data?.user)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [session])
 
   const handleLogout = () => {
     signOut({ callbackUrl: '/' })
@@ -92,69 +86,66 @@ const NavbarLanding = () => {
         {/* Menu y Button login at end */}
         <NavbarContent justify='end' className='hidden sm:flex sm:w-10 w-35'>
           {options.map((option, index) => (
-            <NavbarMenuItem key={index}>
-              <div
-                onMouseEnter={() => setDropdownActive(index)}
-                onMouseLeave={() => setDropdownActive(-1)}
-                onWheel={() => setDropdownActive(-1)}
-              >
-                {childOptions.some(
-                  (childOption) => childOption.id === option.id
-                ) ? (
-                  <Dropdown isOpen={dropdownActive == index} key={option.id}>
-                    <NavbarItem>
-                      <DropdownTrigger>
-                        <Button
-                          disableRipple
-                          className='p-0 bg-transparent data-[hover=true]:bg-transparent text-lg text-[#275DAA]'
-                          variant='light'
-                        >
-                          {option.name}
-                        </Button>
-                      </DropdownTrigger>
-                    </NavbarItem>
-                    <div
-                      onMouseEnter={() => setDropdownActive(index)}
-                      onMouseLeave={() => setDropdownActive(-1)}
-                      onWheel={() => setDropdownActive(-1)}
-                    >
-                      {childOptions.some(
-                        (childOption) => childOption.id === option.id
-                      ) && (
-                        <DropdownMenu
-                          aria-label='ACME'
-                          className='w-[340px]'
-                          itemClasses={{
-                            base: 'gap-0'
-                          }}
-                        >
-                          {childOptions
-                            .filter(
-                              (childOption) => childOption.id === option.id
-                            )
-                            .map((route, index) => (
-                              <DropdownItem key={index}>
-                                <Link
-                                  href={route.path}
-                                  className='text-md text-[#275DAA]'
-                                >
-                                  {route.name}
-                                </Link>
-                              </DropdownItem>
-                            ))}
-                        </DropdownMenu>
-                      )}
-                    </div>
-                  </Dropdown>
-                ) : (
-                  <Link
-                    className='p-0 bg-transparent data-[hover=true]:bg-transparent text-md text-[#275DAA]'
-                    href={`/${option.id}`}
+            <NavbarMenuItem
+              key={index}
+              onMouseEnter={() => setDropdownActive(index)}
+              onMouseLeave={() => setDropdownActive(-1)}
+              onWheel={() => setDropdownActive(-1)}
+            >
+              {childOptions.some(
+                (childOption) => childOption.id === option.id
+              ) ? (
+                <Dropdown isOpen={dropdownActive == index} key={option.id}>
+                  <NavbarItem>
+                    <DropdownTrigger>
+                      <Button
+                        disableRipple
+                        className='p-0 bg-transparent data-[hover=true]:bg-transparent text-lg text-[#275DAA]'
+                        variant='light'
+                      >
+                        {option.name}
+                      </Button>
+                    </DropdownTrigger>
+                  </NavbarItem>
+                  <div
+                    onMouseEnter={() => setDropdownActive(index)}
+                    onMouseLeave={() => setDropdownActive(-1)}
+                    onWheel={() => setDropdownActive(-1)}
                   >
-                    {option.name}
-                  </Link>
-                )}
-              </div>
+                    {childOptions.some(
+                      (childOption) => childOption.id === option.id
+                    ) && (
+                      <DropdownMenu
+                        aria-label='ACME'
+                        className='w-[340px]'
+                        itemClasses={{
+                          base: 'gap-0'
+                        }}
+                      >
+                        {childOptions
+                          .filter((childOption) => childOption.id === option.id)
+                          .map((route, index) => (
+                            <DropdownItem key={index}>
+                              <Link
+                                href={route.path}
+                                className='text-md text-[#275DAA]'
+                              >
+                                {route.name}
+                              </Link>
+                            </DropdownItem>
+                          ))}
+                      </DropdownMenu>
+                    )}
+                  </div>
+                </Dropdown>
+              ) : (
+                <Link
+                  className='p-0 bg-transparent data-[hover=true]:bg-transparent text-md text-[#275DAA]'
+                  href={`/${option.id}`}
+                >
+                  {option.name}
+                </Link>
+              )}
             </NavbarMenuItem>
           ))}
           <NavbarItem>

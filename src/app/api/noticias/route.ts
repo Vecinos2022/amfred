@@ -59,6 +59,6 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
   await connectDB()
-  const data = await Noticia.find()
+  const data = await Noticia.find().sort({ updatedAt: -1 })
   return NextResponse.json({ message: data })
 }
