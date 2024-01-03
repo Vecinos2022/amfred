@@ -6,7 +6,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <SessionProvider>
       <NextUIProvider>
-        <main className="light text-foreground bg-background">{children}</main>
+        <main className='light text-foreground bg-background'>{children}</main>
       </NextUIProvider>
     </SessionProvider>
   )
