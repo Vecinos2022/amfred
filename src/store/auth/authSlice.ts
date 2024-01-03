@@ -9,6 +9,7 @@ export interface User {
   rol: Roles
 }
 
+
 export interface AuthSlice {
   user?: any
   isAuthenticated: Boolean

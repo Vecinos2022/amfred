@@ -154,7 +154,9 @@ const LoginPage = () => {
           </div>
         </section>
       ) : (
+        // console.log('LLEGA AQUÍ')
         router.push('/admin/dashboard')
+        // console.log(session)
       )}
     </>
   )
