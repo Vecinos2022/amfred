@@ -43,7 +43,7 @@ const NoticiasRecientes = () => {
         </Link>
       </div>
 
-      <section className='grid grid-cols-4 grid-rows-2 gap-x-4 gap-y-6 flow-row-dense'>
+      <section className='grid grid-cols-4  gap-x-4 gap-y-6 flow-row-dense'>
         {noticias
           .filter((noticia) => noticia.estatus === true)
           .map((noticia, index) =>
