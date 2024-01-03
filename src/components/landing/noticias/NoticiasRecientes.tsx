@@ -74,7 +74,7 @@ const NoticiasRecientes = () => {
                           <div className='bg-[#275DAA] flex items-center leading-none rounded-full text-gray-50 pt-1.5 pr-3 pb-1.5 pl-2 uppercase '>
                             <p className='inline text-xs font-medium'>New</p>
                           </div>
-                          <span className='text-2xl font-bold leading-none lg:text-3xl xl:text-4xl w-80 md:w-[500px] lg:w-96 truncate'>
+                          <span className='text-2xl font-bold leading-none lg:text-3xl xl:text-4xl w-80 md:w-[500px] lg:w-96 line-clamp-2'>
                             {noticia.titulo}
                           </span>
                           <div className='pt-2 pr-0 pb-0 pl-0'>
