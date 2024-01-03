@@ -47,7 +47,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (session.status === 'authenticated') {
-      router.push('/admin/dashboard')
+      // router.push('/admin/dashboard')
       // signIn(undefined, { callbackUrl: '/admin/dashboard' })
       setUser(session.data?.user)
     }
@@ -58,9 +58,7 @@ const LoginPage = () => {
 
   return (
     <>
-      {session.status === 'authenticated' ? (
-        <LoaderScreen />
-      ) : (
+      {session.status !== 'authenticated' ? (
         <section className='relative flex flex-wrap lg:h-screen lg:items-center w-full'>
           <div className='w-screen h-screen flex items-center justify-center px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24 bg-default-200'>
             <div>
@@ -155,6 +153,8 @@ const LoginPage = () => {
             </Link>
           </div>
         </section>
+      ) : (
+        router.push('/admin/dashboard')
       )}
     </>
   )
