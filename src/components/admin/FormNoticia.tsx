@@ -36,8 +36,6 @@ const FormNoticia = () => {
     noticiaActive: state.noticiaActive
   }))
 
-  const [content, setContent] = useState('')
-
   const {
     register,
     handleSubmit,
@@ -49,6 +47,9 @@ const FormNoticia = () => {
     noticiaActive ? editNoticia(data, noticiaActive._id) : saveNewNoticia(data)
     router.back()
   }
+  const [content, setContent] = useState(
+    noticiaActive ? noticiaActive.descripcion : ''
+  )
 
   const handleContentChange = (value: string) => {
     setContent(value)

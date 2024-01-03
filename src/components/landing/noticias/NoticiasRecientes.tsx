@@ -69,20 +69,14 @@ const NoticiasRecientes = () => {
                           />
                         </div>
                       </div>
-                      <div className='flex flex-col items-start justify-center w-full h-full pt-6 pr-0 pb-2 pl-0  '>
-                        <div
-                          className='flex flex-col items-start justify-center h-full space-y-3 transform md:pr-10 lg:pr-16
-                md:space-y-5'
-                        >
-                          <div
-                            className='bg-[#275DAA] flex items-center leading-none rounded-full text-gray-50 pt-1.5 pr-3 pb-1.5 pl-2
-                  uppercase '
-                          >
+                      <div className='flex flex-col items-start justify-center  h-full pt-6 pr-0 pb-2 pl-0  '>
+                        <div className='flex flex-col items-start h-full space-y-3 transform md:pr-10 lg:pr-16 md:space-y-5'>
+                          <div className='bg-[#275DAA] flex items-center leading-none rounded-full text-gray-50 pt-1.5 pr-3 pb-1.5 pl-2 uppercase '>
                             <p className='inline text-xs font-medium'>New</p>
                           </div>
-                          <h1 className='text-4xl font-bold leading-none lg:text-5xl xl:text-6xl'>
+                          <span className='text-2xl font-bold leading-none lg:text-3xl xl:text-4xl w-80 md:w-[500px] lg:w-96 truncate'>
                             {noticia.titulo}
-                          </h1>
+                          </span>
                           <div className='pt-2 pr-0 pb-0 pl-0'>
                             <p className='flex items-center text-sm font-medium mt-0 mr-1 mb-0 ml-1'>
                               <FaCalendar className='mr-2 text-lg text-[#275DAA]' />{' '}

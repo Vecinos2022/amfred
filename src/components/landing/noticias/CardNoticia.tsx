@@ -34,7 +34,7 @@ const CardNoticia: React.FC<NoticiaProps> = ({ noticia }) => {
           >
             {dayjs(noticia.updatedAt).format('LL')}
           </p>
-          <p className='text-lg font-bold sm:text-xl md:text-2xl'>
+          <p className='text-lg font-bold sm:text-xl md:text-2xl w-80 lg:w-60 truncate'>
             {noticia.titulo}
           </p>
         </div>
