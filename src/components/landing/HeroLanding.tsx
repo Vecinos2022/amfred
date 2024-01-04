@@ -2,6 +2,7 @@ import { Image } from '@nextui-org/react'
 import Link from 'next/link'
 import img_torre from '../../assets/imgs/TORREV1_1.png'
 import NoticiasRecientes from './noticias/NoticiasRecientes'
+import ProveedoresLanding from './proveedores/ProveedoresLanding'
 
 const HeroLanding = () => {
   return (
@@ -69,9 +70,9 @@ const HeroLanding = () => {
       {/* Inicio noticias recientes */}
       <NoticiasRecientes />
       {/* Fin noticias recientes */}
+      <ProveedoresLanding />
     </>
   )
 }
 
 export default HeroLanding
-;('')

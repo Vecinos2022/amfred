@@ -46,6 +46,13 @@ const NavbarLanding = () => {
   const handleLogout = () => {
     signOut({ callbackUrl: '/' })
   }
+
+  const items = [
+    {
+      key: 'DGO',
+      label: 'AMFRED DGO.'
+    }
+  ]
   return (
     <>
       <ClockNavbar />
@@ -76,12 +83,30 @@ const NavbarLanding = () => {
           justify='start'
         >
           <NavbarBrand>
-            {/* hay que cambiar este href */}
             <Link href={'/'}>
               <LogoMain />
             </Link>
           </NavbarBrand>
         </NavbarContent>
+
+        {/* <NavbarContent className=''>
+          <Dropdown>
+            <DropdownTrigger>
+              <Button variant='bordered'>Seleccionar AMFRED</Button>
+            </DropdownTrigger>
+            <DropdownMenu aria-label='Dynamic Actions' items={items}>
+              {(item) => (
+                <DropdownItem
+                  key={item.key}
+                  color={'primary'}
+                  className='text-[black]'
+                >
+                  {item.label}
+                </DropdownItem>
+              )}
+            </DropdownMenu>
+          </Dropdown>
+        </NavbarContent> */}
 
         {/* Menu y Button login at end */}
         <NavbarContent justify='end' className='hidden sm:flex sm:w-10 w-35'>
