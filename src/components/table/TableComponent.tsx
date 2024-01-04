@@ -88,31 +88,22 @@ const TableComponent: React.FC<TableProps> = ({
                 onClear={() => onClear()}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <Dropdown>
-                <DropdownTrigger>
-                  <Button size='md' variant='flat'>
-                    Exportar
-                  </Button>
-                </DropdownTrigger>
-                <DropdownMenu>
-                  <DropdownItem
-                    className='text-foreground'
-                    color='success'
-                    onClick={() => exportExcel(columns, rows)}
-                    startContent={<FaFileExcel />}
-                  >
-                    Exportar Excel
-                  </DropdownItem>
-                  <DropdownItem
-                    className='text-foreground'
-                    color='danger'
-                    onClick={() => exportPDF(columns, rows)}
-                    startContent={<FaFilePdf />}
-                  >
-                    Exportar PDF
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
+              <Button
+                startContent={<FaFilePdf />}
+                color='danger'
+                onClick={() => exportPDF(columns, rows)}
+              >
+                PDF
+              </Button>
+              <Button
+                startContent={<FaFileExcel />}
+                color='success'
+                className='text-white'
+                onClick={() => exportExcel(columns, rows)}
+              >
+                Excel
+              </Button>
+
               {linkButton && (
                 <Button
                   className='justify-self-end'
