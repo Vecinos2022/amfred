@@ -42,10 +42,11 @@ const FormNoticia = () => {
     formState: { errors }
   } = useForm<NoticiaFormInputs>({})
 
-  const onSubmit: SubmitHandler<NoticiaFormInputs> = (data) => {
+  const onSubmit: SubmitHandler<NoticiaFormInputs> = async (data) => {
     data.descripcion = content
-    noticiaActive ? editNoticia(data, noticiaActive._id) : saveNewNoticia(data)
-    router.back()
+    noticiaActive
+      ? editNoticia(data, noticiaActive._id)
+      : await saveNewNoticia(data).then(() => router.back())
   }
   const [content, setContent] = useState(
     noticiaActive ? noticiaActive.descripcion : ''
