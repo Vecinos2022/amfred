@@ -72,9 +72,8 @@ const NavbarDashboard: React.FC<NavbarDashboardProps> = ({ children }) => {
                       {isSidebarOpen ? <IoClose /> : <TfiMenu />}
                     </span>
                   </button>
-                  <Link href='/'>
-                    <LogoMain />
-                  </Link>
+
+                  <LogoMain />
                 </div>
                 <div className='flex items-center'>
                   <div className='flex items-center ms-3'>

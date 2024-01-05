@@ -7,7 +7,7 @@ import { FaCalendar } from 'react-icons/fa'
 import dayjs from '@/services/daysJsConfig'
 import Image from 'next/image'
 
-const ProveedoresLanding = () => {
+const PatrocinadoresLanding = () => {
   const { getNoticias, setActive } = useNoticiasStore()
 
   useEffect(() => {
@@ -26,8 +26,8 @@ const ProveedoresLanding = () => {
   return (
     <>
       <section className='p-10'>
-        <div className='flex flex-row justify-between py-10'>
-          <h1 className='text-xl md:text-4xl font-black'>Proveedores</h1>
+        <div className='flex flex-row justify-center py-10'>
+          <h1 className='text-xl md:text-4xl font-black'>Patrocinadores</h1>
         </div>
         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4'>
           {noticias
@@ -66,4 +66,4 @@ const ProveedoresLanding = () => {
     </>
   )
 }
-export default ProveedoresLanding
+export default PatrocinadoresLanding

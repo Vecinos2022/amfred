@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import { Image } from '@nextui-org/react'
 import { useNoticiasStore } from '@/store/noticias/noticiasSlice'
 import { useRouter } from 'next/navigation'
 import dayjs from '@/services/daysJsConfig'
 import parse from 'html-react-parser'
 import './../../styles/styles-quill.css'
+import Image from 'next/image'
 
 const Noticia = () => {
   const route = useRouter()
@@ -37,11 +37,13 @@ const Noticia = () => {
             </div>
 
             <div className='mt-8 grid grid-cols-1 gap-8'>
-              <div className='relative  overflow-hidden sm:h-80 lg:h-full'>
+              <div className='relative  overflow-hidden'>
                 <Image
+                  width={500}
+                  height={500}
                   alt={noticiaActive.imagen}
                   src={noticiaActive.imagen}
-                  className=' object-cover'
+                  className=' object-cover w-60 h-48'
                 />
               </div>
 

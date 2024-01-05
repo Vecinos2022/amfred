@@ -31,14 +31,14 @@ const CardNoticia: React.FC<NoticiaProps> = ({ noticia }) => {
               className=' shadow-sm object-cover  h-40   transition duration-300 ease-in-out hover:scale-125'
             />
           </span>
+          <p className='text-lg font-bold sm:text-xl md:text-2xl w-80 lg:w-60 line-clamp-2'>
+            {noticia.titulo}
+          </p>
           <p
             className='bg-[#275DAA] flex items-center leading-none text-xs text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
     rounded-full uppercase mb-2'
           >
             {dayjs(noticia.updatedAt).format('LL')}
-          </p>
-          <p className='text-lg font-bold sm:text-xl md:text-2xl w-80 lg:w-60 line-clamp-2'>
-            {noticia.titulo}
           </p>
         </div>
       </article>

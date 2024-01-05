@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import CardNoticia from './CardNoticia'
-import { Image } from '@nextui-org/react'
 import dayjs from '@/services/daysJsConfig'
 import { NoticiaResponse } from '@/types/Noticia'
 import { useNoticiasStore } from '@/store/noticias/noticiasSlice'
@@ -9,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import LoaderScreen from '@/components/shared/LoaderScreen'
 import Link from 'next/link'
 import { FaCalendar } from 'react-icons/fa'
+import Image from 'next/image'
 
 const NoticiasRecientes = () => {
   const route = useRouter()
@@ -60,23 +60,24 @@ const NoticiasRecientes = () => {
                   <div className='flex flex-col items-start'>
                     <div className='flex flex-col  sm:px-5 '>
                       <div className='w-full'>
-                        <div className='block'>
+                        <div className='rounded-lg relative overflow-hidden mb-2 w-full'>
                           <Image
-                            isZoomed
+                            width={500}
+                            height={500}
                             alt={noticia.titulo}
                             src={noticia.imagen}
-                            className='object-cover rounded-lg max-h-64 sm:max-h-96 btn- w-full h-full  transition duration-300 ease-in-out'
+                            className='object-cover rounded-lg max-h-64 sm:max-h-96 btn- w-full h-72 transition duration-300 ease-in-out hover:scale-125'
                           />
                         </div>
                       </div>
                       <div className='flex flex-col items-start justify-center  h-full pt-6 pr-0 pb-2 pl-0  '>
                         <div className='flex flex-col items-start h-full space-y-3 transform md:pr-10 lg:pr-16 md:space-y-5'>
-                          <div className='bg-[#275DAA] flex items-center leading-none rounded-full text-gray-50 pt-1.5 pr-3 pb-1.5 pl-2 uppercase '>
-                            <p className='inline text-xs font-medium'>New</p>
-                          </div>
                           <span className='text-2xl font-bold leading-none lg:text-3xl xl:text-4xl w-80 md:w-[500px] lg:w-96 line-clamp-2'>
                             {noticia.titulo}
                           </span>
+                          <p className='py-1 items-self-left'>
+                            {noticia.descripcion_corta}
+                          </p>
                           <div className='pt-2 pr-0 pb-0 pl-0'>
                             <p className='flex items-center text-sm font-medium mt-0 mr-1 mb-0 ml-1'>
                               <FaCalendar className='mr-2 text-lg text-[#275DAA]' />{' '}
@@ -84,11 +85,6 @@ const NoticiasRecientes = () => {
                             </p>
                           </div>
                         </div>
-                      </div>
-                      <div>
-                        <p className='py-4 items-self-left'>
-                          {noticia.descripcion_corta}
-                        </p>
                       </div>
                     </div>
                   </div>

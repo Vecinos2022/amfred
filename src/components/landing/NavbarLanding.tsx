@@ -43,9 +43,14 @@ const NavbarLanding = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
-  const handleLogout = () => {
-    signOut({ callbackUrl: '/' })
-  }
+  useEffect(() => {
+    if (session.status === 'authenticated') {
+      router.push('/admin/dashboard')
+      // signIn(undefined, { callbackUrl: '/admin/dashboard' })
+      setUser(session.data?.user)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session])
 
   const items = [
     {
@@ -174,43 +179,14 @@ const NavbarLanding = () => {
             </NavbarMenuItem>
           ))}
           <NavbarItem>
-            {session.status === 'authenticated' ? (
-              <Dropdown backdrop='blur'>
-                <DropdownTrigger>
-                  <Button variant='solid' color='primary'>
-                    {'Admin'}
-                  </Button>
-                </DropdownTrigger>
-                <DropdownMenu variant='shadow' aria-label='Static Actions'>
-                  <DropdownItem
-                    className='text-black'
-                    key='new'
-                    showDivider
-                    onClick={() => router.push('/admin/dashboard')}
-                  >
-                    Dashboard
-                  </DropdownItem>
-
-                  <DropdownItem
-                    key='delete'
-                    className='text-danger'
-                    color='danger'
-                    onClick={() => handleLogout()}
-                  >
-                    Cerrar sesión
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            ) : (
-              <Button
-                as={Link}
-                className='rounded bg-[#275DAA] text-[white]'
-                href='/login'
-                variant='flat'
-              >
-                {user ? 'Admin' : 'Mi Cuenta'}
-              </Button>
-            )}
+            <Button
+              as={Link}
+              className='rounded bg-[#275DAA] text-[white]'
+              href='/login'
+              variant='flat'
+            >
+              {'Mi Cuenta'}
+            </Button>
           </NavbarItem>
         </NavbarContent>
 
