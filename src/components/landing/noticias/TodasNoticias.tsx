@@ -8,7 +8,11 @@ import CardNoticia from './CardNoticia'
 import dayjs from '@/services/daysJsConfig'
 import Image from 'next/image'
 
-const TodasNoticias = () => {
+interface noticiasSimilares {
+  titulo_seccion: string
+}
+
+const TodasNoticias: React.FC<noticiasSimilares> = ({ titulo_seccion }) => {
   const { getNoticias, setActive } = useNoticiasStore()
 
   useEffect(() => {
@@ -28,7 +32,7 @@ const TodasNoticias = () => {
     <>
       <section className='p-10'>
         <div className='flex flex-row justify-between py-10'>
-          <h1 className='text-xl md:text-4xl font-black'>Todas las Noticias</h1>
+          <h1 className='text-xl md:text-4xl font-black'>{titulo_seccion}</h1>
         </div>
         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4'>
           {noticias

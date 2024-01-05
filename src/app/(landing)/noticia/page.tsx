@@ -62,7 +62,7 @@ const Noticia = () => {
             </div>
           </div>
         </section>
-        <TodasNoticias />
+        <TodasNoticias titulo_seccion='Noticias Relacionadas' />
       </>
     )
   } else {
