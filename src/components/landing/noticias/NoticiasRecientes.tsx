@@ -46,6 +46,7 @@ const NoticiasRecientes = () => {
       <section className='grid grid-cols-4  gap-x-4 gap-y-6 flow-row-dense'>
         {noticias
           .filter((noticia) => noticia.estatus === true)
+          .slice(0, 5)
           .map((noticia, index) =>
             index == 0 ? (
               <article

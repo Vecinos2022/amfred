@@ -64,7 +64,7 @@ const FormNoticia = () => {
           errorMessage={errors.titulo ? errors.titulo.message : ''}
           type='text'
           {...register('titulo')}
-          label='Nombre del usuario'
+          label='Titulo de la noticia'
           defaultValue={noticiaActive?.titulo}
           className='m-2'
         />

@@ -62,7 +62,11 @@ const Noticia = () => {
             </div>
           </div>
         </section>
-        <TodasNoticias titulo_seccion='Noticias Relacionadas' />
+        <TodasNoticias
+          titulo_seccion='Noticias Relacionadas'
+          id_noticia_actual={noticiaActive._id}
+          sliceTo={5}
+        />
       </>
     )
   } else {

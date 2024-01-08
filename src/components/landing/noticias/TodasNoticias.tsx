@@ -10,9 +10,15 @@ import Image from 'next/image'
 
 interface noticiasSimilares {
   titulo_seccion: string
+  id_noticia_actual?: string
+  sliceTo: number
 }
 
-const TodasNoticias: React.FC<noticiasSimilares> = ({ titulo_seccion }) => {
+const TodasNoticias: React.FC<noticiasSimilares> = ({
+  titulo_seccion,
+  id_noticia_actual = '',
+  sliceTo = 0
+}) => {
   const { getNoticias, setActive } = useNoticiasStore()
 
   useEffect(() => {
@@ -36,7 +42,11 @@ const TodasNoticias: React.FC<noticiasSimilares> = ({ titulo_seccion }) => {
         </div>
         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4'>
           {noticias
-            .filter((noticia) => noticia.estatus === true)
+            .filter(
+              (noticia) =>
+                noticia.estatus === true && noticia._id !== id_noticia_actual
+            )
+            .slice(0, sliceTo === 0 ? noticias.length - 1 : sliceTo)
             .map((noticia, index) => (
               <Link
                 href={'/noticia'}
