@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 import { useNoticiasStore } from '@/store/noticias/noticiasSlice'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { NoticiaFormInputs } from '@/types/Noticia'
-import AdminCard from '../shared/AdminCard'
+import AdminCard from '../../shared/AdminCard'
 import { useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
@@ -45,7 +45,7 @@ const FormNoticia = () => {
   const onSubmit: SubmitHandler<NoticiaFormInputs> = async (data) => {
     data.descripcion = content
     noticiaActive
-      ? editNoticia(data, noticiaActive._id)
+      ? await editNoticia(data, noticiaActive._id).then(() => router.back())
       : await saveNewNoticia(data).then(() => router.back())
   }
   const [content, setContent] = useState(

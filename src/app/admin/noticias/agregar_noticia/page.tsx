@@ -1,4 +1,4 @@
-import FormNoticia from '@/components/admin/FormNoticia'
+import FormNoticia from '@/components/admin/noticias/FormNoticia'
 
 const Home = () => {
   return (

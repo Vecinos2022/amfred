@@ -11,18 +11,22 @@ import {
   CardBody,
   CardHeader
 } from '@nextui-org/react'
-import { useNoticiasStore } from '@/store/noticias/noticiasSlice'
+import { usePatrocinadoresStore } from '@/store/patrocinadores/patrocinadoresSlice'
 
 import { FaEdit, FaTrash } from 'react-icons/fa'
 
-import TableComponent from '../table/TableComponent'
-import { NoticiaFormInputs, NoticiaResponse } from '@/types/Noticia'
+import TableComponent from '../../table/TableComponent'
 import { useRouter } from 'next/navigation'
+import { PatrocinadorResponse } from '@/types/Patrocinador'
 
-const TodasNoticias = () => {
+const TodosPatrocinadores = () => {
   const route = useRouter()
-  const { getNoticias, clearActive, setActive, changeStatusNoticia } =
-    useNoticiasStore()
+  const {
+    getPatrocinadores,
+    clearActive,
+    setActive,
+    changeStatusPatrocinador
+  } = usePatrocinadoresStore()
 
   const [rowsActive, setRowsActive] = useState<
     { index: number; key: string }[]
@@ -32,36 +36,36 @@ const TodasNoticias = () => {
   >([])
 
   useEffect(() => {
-    getNoticias()
+    getPatrocinadores()
     clearActive()
   }, [])
 
-  const { noticias } = useNoticiasStore((state) => ({
-    noticias: state.noticias
+  const { patrocinadores } = usePatrocinadoresStore((state) => ({
+    patrocinadores: state.patrocinadores
   }))
 
-  const handleEdit = (noticia: NoticiaResponse) => {
-    setActive(noticia)
-    route.push('agregar_noticia')
+  const handleEdit = (patrocinador: PatrocinadorResponse) => {
+    setActive(patrocinador)
+    route.push('agregar_patrocinador')
   }
 
   useEffect(() => {
-    if (noticias.length > 0) {
+    if (patrocinadores.length > 0) {
       setRowsActive(
-        noticias
-          .filter((noticia) => {
-            return noticia.estatus === true
+        patrocinadores
+          .filter((patrocinador) => {
+            return patrocinador.estatus === true
           })
-          .map((noticia, index) => ({
-            key: noticia._id,
+          .map((patrocinador, index) => ({
+            key: patrocinador._id,
             index: index + 1,
-            titulo: noticia.titulo,
-            fecha: dayjs(noticia.updatedAt).format('DD/MM/YYYY'),
+            titulo: patrocinador.nombre_patrocinador,
+            fecha: dayjs(patrocinador.updatedAt).format('DD/MM/YYYY'),
             acciones: (
               <div className='relative flex items-center gap-2 justify-center'>
                 <Tooltip content='Editar' color='foreground' closeDelay={20}>
                   <Button
-                    onClick={() => handleEdit(noticia)}
+                    onClick={() => handleEdit(patrocinador)}
                     className='text-lg bg-[#338DF3] text-white cursor-pointer active:opacity-50 active:border-0'
                   >
                     <FaEdit />
@@ -70,7 +74,7 @@ const TodasNoticias = () => {
 
                 <Tooltip content='Eliminar' color='foreground' closeDelay={20}>
                   <Button
-                    onClick={() => changeStatusNoticia(noticia._id)}
+                    onClick={() => changeStatusPatrocinador(patrocinador._id)}
                     className='text-lg bg-red-700 text-white cursor-pointer active:opacity-50 active:border-0'
                   >
                     <FaTrash />
@@ -81,22 +85,22 @@ const TodasNoticias = () => {
           }))
       )
       setRowsInactive(
-        noticias
-          .filter((noticia) => {
-            return noticia.estatus === false
+        patrocinadores
+          .filter((patrocinador) => {
+            return patrocinador.estatus === false
           })
-          .map((noticia, index) => ({
-            key: noticia._id,
+          .map((patrocinador, index) => ({
+            key: patrocinador._id,
             index: index + 1,
-            titulo: noticia.titulo,
-            fecha: dayjs(noticia.updatedAt).format('DD/MM/YYYY')
+            titulo: patrocinador.nombre_patrocinador,
+            fecha: dayjs(patrocinador.updatedAt).format('DD/MM/YYYY')
           }))
       )
     } else {
       setRowsActive([])
       setRowsInactive([])
     }
-  }, [noticias])
+  }, [patrocinadores])
 
   const columns = [
     {
@@ -105,7 +109,7 @@ const TodasNoticias = () => {
     },
     {
       key: 'titulo',
-      label: 'Título'
+      label: 'Patrocinador'
     },
 
     {
@@ -127,7 +131,7 @@ const TodasNoticias = () => {
           columns={columns}
           rows={rowsActive}
           showHeader={true}
-          linkButton={'/admin/agregar_noticia'}
+          linkButton={'/admin/patrocinadores/agregar_patrocinador'}
         />
       )
     },
@@ -139,7 +143,7 @@ const TodasNoticias = () => {
           columns={columns.slice(0, -1)}
           rows={rowsInactive}
           showHeader={true}
-          linkButton={'/admin/agregar_noticia'}
+          linkButton={'/admin/patrocinadores/agregar_patrocinador'}
         />
       )
     }
@@ -156,4 +160,4 @@ const TodasNoticias = () => {
   )
 }
 
-export default TodasNoticias
+export default TodosPatrocinadores

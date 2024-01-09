@@ -17,7 +17,12 @@ export const options: SidebarOption[] = [
   {
     name: 'Noticias',
     id: 'noticias',
-    path: '/admin/todas_noticias'
+    path: '/admin/noticias/todas_noticias'
+  },
+  {
+    name: 'Patrocinadores',
+    id: 'patrocinadores',
+    path: '/admin/patrocinadores/todos_patrocinadores'
   }
 ]
 

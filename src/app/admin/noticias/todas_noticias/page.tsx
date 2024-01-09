@@ -1,4 +1,4 @@
-import TodasNoticias from '@/components/admin/TodasNoticias'
+import TodasNoticias from '@/components/admin/noticias/TodasNoticias'
 
 const Home = () => {
   return (
